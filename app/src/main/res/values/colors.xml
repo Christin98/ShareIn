@@ -3,9 +3,9 @@
     <color name="colorPrimary">#F9F9F9</color>
     <color name="colorPrimaryDark">#C6C6C6</color>
     <color name="colorAccent">#275dff</color>
-    <color name="colorSecondary">#275dff</color>
-    <color name="colorSecondaryVariant">#758aff</color>
-    <color name="colorOnSecondary">#0034cb</color>
+    <color name="colorSecondary">#fbff14</color>
+    <color name="colorSecondaryVariant">#c4cc00</color>
+    <color name="colorOnSecondary">#000000</color>
     <color name="textColorPrimary">#000000</color>
     <color name="colorPassive">#20000000</color>
     <color name="textColorSecondary">#ffffff</color>
@@ -15,7 +15,7 @@
     <!-- local coloring-->
     <color name="colorDonation">#f44336</color>
     <color name="colorDivider">#eeeeee</color>
-    <color name="colorSelection">#20000000</color>
+    <color name="colorSelection">#000000</color>
     <color name="colorShadowBeginning">#00D0D0D0</color>
     <color name="colorShadowEnd">#50D0D0D0</color>
     <color name="colorTranslucent">#b0ffffff</color>

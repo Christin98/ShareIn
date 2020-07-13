@@ -79,14 +79,7 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
         });
 
         mNavigationView.setNavigationItemSelectedListener(this);
-        mActionMode.setOnSelectionTaskListener(new PowerfulActionMode.OnSelectionTaskListener()
-        {
-            @Override
-            public void onSelectionTask(boolean started, PowerfulActionMode actionMode)
-            {
-                toolbar.setVisibility(!started ? View.VISIBLE : View.GONE);
-            }
-        });
+        mActionMode.setOnSelectionTaskListener((started, actionMode) -> toolbar.setVisibility(!started ? View.VISIBLE : View.GONE));
 
         if (UpdateUtils.hasNewVersion(this))
             highlightUpdater(getDefaultPreferences().getString("availableVersion", null));
@@ -94,33 +87,16 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
         if (!AppUtils.isLatestChangeLogSeen(this)) {
             new AlertDialog.Builder(this)
                     .setMessage(R.string.mesg_versionUpdatedChangelog)
-                    .setPositiveButton(R.string.butn_yes, new DialogInterface.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which)
-                        {
-                            AppUtils.publishLatestChangelogSeen(MainActivity.this);
-                            startActivity(new Intent(MainActivity.this, ChangelogActivity.class));
-                        }
+                    .setPositiveButton(R.string.butn_yes, (dialog, which) -> {
+                        AppUtils.publishLatestChangelogSeen(MainActivity.this);
+                        startActivity(new Intent(MainActivity.this, ChangelogActivity.class));
                     })
-                    .setNeutralButton(R.string.butn_never, new DialogInterface.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which)
-                        {
-                            getDefaultPreferences().edit()
-                                    .putBoolean("show_changelog_dialog", false)
-                                    .apply();
-                        }
-                    })
-                    .setNegativeButton(R.string.butn_no, new DialogInterface.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which)
-                        {
-                            AppUtils.publishLatestChangelogSeen(MainActivity.this);
-                            Toast.makeText(MainActivity.this, R.string.mesg_versionUpdatedChangelogRejected, Toast.LENGTH_SHORT).show();
-                        }
+                    .setNeutralButton(R.string.butn_never, (dialog, which) -> getDefaultPreferences().edit()
+                            .putBoolean("show_changelog_dialog", false)
+                            .apply())
+                    .setNegativeButton(R.string.butn_no, (dialog, which) -> {
+                        AppUtils.publishLatestChangelogSeen(MainActivity.this);
+                        Toast.makeText(MainActivity.this, R.string.mesg_versionUpdatedChangelogRejected, Toast.LENGTH_SHORT).show();
                     })
                     .show();
         }
@@ -221,19 +197,14 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
             builder.setTitle(R.string.text_developmentSurvey);
             builder.setMessage(R.string.text_developmentSurveySummary);
             builder.setNegativeButton(R.string.genfw_uwg_later, null);
-            builder.setPositiveButton(R.string.butn_temp_doIt, new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    try {
-                        startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(
-                                "https://docs.google.com/forms/d/e/1FAIpQLScmwX923MACmHvZTpEyZMDCxRQjrd8b67u9p9MOjV1qFVp-_A/viewform?usp=sf_link"
-                        )));
-                    } catch (ActivityNotFoundException e) {
-                        Toast.makeText(MainActivity.this, R.string.mesg_temp_noBrowser,
-                                Toast.LENGTH_SHORT).show();
-                    }
+            builder.setPositiveButton(R.string.butn_temp_doIt, (dialog, which) -> {
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(
+                            "https://docs.google.com/forms/d/e/1FAIpQLSc9S-It3mgp9Bw_SBIHXf-Kyt6-rm02SR5-jn_ipu5DfbUKjg/viewform?usp=sf_link"
+                    )));
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this, R.string.mesg_temp_noBrowser,
+                            Toast.LENGTH_SHORT).show();
                 }
             });
             builder.show();
@@ -276,14 +247,7 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
             versionText.setText(localDevice.versionName);
             loadProfilePictureInto(localDevice.nickname, imageView);
 
-            editImageView.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    startProfileEditor();
-                }
-            });
+            editImageView.setOnClickListener(v -> startProfileEditor());
         }
     }
 
