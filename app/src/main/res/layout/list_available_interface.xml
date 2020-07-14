@@ -9,12 +9,12 @@
     android:paddingRight="24dp"
     android:paddingTop="10dip">
 
-<!--    style="@style/TextAppearance.Secondary"-->
 
     <TextView
         android:id="@+id/pending_available_interface_text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextAppearance.Secondary"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
@@ -30,20 +30,22 @@
         android:layout_toStartOf="@id/pending_available_interface_text2"
         android:orientation="vertical">
 
-<!--        style="@style/TextAppearance.Primary"-->
 
 
         <TextView
             android:id="@+id/pending_available_interface_text1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.Primary"
+        />
 
-<!--        style="@style/TextAppearance.Secondary"-->
 
         <TextView
             android:id="@+id/pending_available_interface_text3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.Secondary"
+        />
 
     </LinearLayout>
 

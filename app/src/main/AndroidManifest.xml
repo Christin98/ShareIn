@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.project.christinkcdev.share.shareindia">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -18,17 +19,25 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.ConnectionManagerActivity"></activity>
+        android:theme="@style/Theme.ShareIndia"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.ChangeStoragePathActivity"></activity>
+        <activity android:name=".activity.ConnectionManagerActivity" />
         <activity android:name=".activity.ContentSharingActivity" />
         <activity android:name=".activity.ViewTransferActivity" />
         <activity android:name=".activity.FileExplorerActivity" />
-        <activity android:name=".activity.ShareActivity" />
+        <activity android:name=".activity.ShareActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="genonbeta.intent.action.TREBLESHOT_SEND_TEXT"/> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity android:name=".activity.PreferencesActivity" />
         <activity android:name=".activity.WebShareActivity" />
         <activity android:name=".activity.AboutActivity" />
@@ -36,7 +45,9 @@
         <activity android:name=".activity.ChangelogActivity" />
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.ShareIndia.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

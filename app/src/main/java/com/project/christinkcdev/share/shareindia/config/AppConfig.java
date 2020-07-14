@@ -19,20 +19,20 @@ public class AppConfig {
             WEB_SHARE_CONNECTION_MAX = 20;
 
     public final static String
-            EMAIL_DEVELOPER = "genonbeta@gmail.com",
-            URI_REPO_APP_UPDATE = "https://api.github.com/repos/genonbeta/TrebleShot/releases",
-            URI_REPO_APP_CONTRIBUTORS = "https://api.github.com/repos/genonbeta/TrebleShot/contributors",
-            URI_GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.genonbeta.TrebleShot",
-            URI_REPO_APP = "http://github.com/genonbeta/TrebleShot",
-            URI_REPO_ORG = "http://github.com/genonbeta",
+            EMAIL_DEVELOPER = "kcdeveloperss@gmail.com",
+            URI_REPO_APP_UPDATE = "https://api.github.com/repos/Christin98/ShareIndia/releases",
+            URI_REPO_APP_CONTRIBUTORS = "https://api.github.com/repos/Christin98/ShareIndia/contributors",
+            URI_GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.project.christinkcdev.share.shareindia",
+            URI_REPO_APP = "http://github.com/Christin98/ShareIndia",
+            URI_REPO_ORG = "http://github.com/Christin98",
             URI_GITHUB_PROFILE = "https://github.com/%s",
-            URI_TRANSLATE = "https://github.com/genonbeta/TrebleShot/wiki/Language-contribution",
-            URI_TELEGRAM_CHANNEL = "https://t.me/trebleshot",
-            PREFIX_ACCESS_POINT = "TS_",
-            EXT_FILE_PART = "tshare",
+            URI_TRANSLATE = "https://github.com/Christin98/ShareIndia/wiki/Language-contribution",
+            URI_TELEGRAM_CHANNEL = "https://t.me/shareindia",
+            PREFIX_ACCESS_POINT = "SI_",
+            EXT_FILE_PART = "sharein",
             NETWORK_INTERFACE_WIFI = "wlan0",
-            NDS_COMM_SERVICE_NAME = "TSComm",
-            NDS_COMM_SERVICE_TYPE = "_tscomm._tcp.",
+            NDS_COMM_SERVICE_NAME = "SIComm",
+            NDS_COMM_SERVICE_TYPE = "_sicomm._tcp.",
             KEY_GOOGLE_PUBLIC = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk1peq7MhNms9ynhnoRtwxnb"
                     + "izdEr3TKifUGlUPB3r33WkvPWjwowRvYeuY36+CkBmtjc46Xg/6/jrhPY+L0a+wd58lsNxLUMpo7"
                     + "tN2std0TGrsMmmlihb4Bsxcu/6ThsY4CIQx0bdze2v8Zle3e4EoHuXcqQnpwkb+3wMx2rR2E9ih+"

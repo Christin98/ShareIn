@@ -5,12 +5,12 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="@dimen/padding_list_content_parent_layout">
-<!--    style="@style/CondensedTitleStyle"-->
 
     <TextView
         android:id="@+id/layout_list_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/CondensedTitleStyle"
         android:paddingEnd="@dimen/padding_list_content_icon_main_margin_left"
         android:paddingLeft="@dimen/padding_list_content_icon_main_margin_left"
         android:paddingRight="@dimen/padding_list_content_icon_main_margin_left"
