@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -67,14 +66,9 @@ public class HomeFragment extends com.genonbeta.android.framework.app.Fragment  
             }
         });
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
-        {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
-            {
-                mViewPager.setCurrentItem(menuItem.getOrder());
-                return true;
-            }
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            mViewPager.setCurrentItem(menuItem.getOrder());
+            return true;
         });
 
         return view;

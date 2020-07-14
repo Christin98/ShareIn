@@ -27,7 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareIndia"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.ChangeStoragePathActivity"></activity>
+        <activity android:name=".activity.ThirdPartyLibrariesActivity"></activity>
+        <activity android:name=".activity.ChangeStoragePathActivity" />
         <activity android:name=".activity.ConnectionManagerActivity" />
         <activity android:name=".activity.ContentSharingActivity" />
         <activity android:name=".activity.ViewTransferActivity" />
@@ -40,7 +41,9 @@
         </activity>
         <activity android:name=".activity.PreferencesActivity" />
         <activity android:name=".activity.WebShareActivity" />
-        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.AboutActivity"
+            android:theme="@style/Theme.ShareIndia.NoActionBar">
+        </activity>
         <activity android:name=".activity.ManageDevicesActivity" />
         <activity android:name=".activity.ChangelogActivity" />
         <activity
