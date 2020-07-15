@@ -27,7 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareIndia"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.BarcodeScannerActivity"></activity>
+        <activity android:name=".activity.AddDevicesToTransferActivity"></activity>
+        <activity android:name=".activity.BarcodeScannerActivity" />
         <activity android:name=".activity.FilePickerActivity" />
         <activity android:name=".activity.ThirdPartyLibrariesActivity" />
         <activity android:name=".activity.ChangeStoragePathActivity" />
