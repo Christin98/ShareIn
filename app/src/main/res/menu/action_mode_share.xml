@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_mode_share_trebleshot"
         android:icon="@drawable/ic_send_white_24dp"
-        android:title="@string/butn_shareWithTrebleshot"
+        android:title="@string/butn_shareWithShareindia"
         app:showAsAction="always" />
 
     <item

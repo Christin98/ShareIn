@@ -1,13 +1,12 @@
 package com.project.christinkcdev.share.shareindia.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.project.christinkcdev.share.shareindia.R;
+import com.project.christinkcdev.share.shareindia.app.Activity;
 
-public class ChangelogActivity extends AppCompatActivity {
+public class ChangelogActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

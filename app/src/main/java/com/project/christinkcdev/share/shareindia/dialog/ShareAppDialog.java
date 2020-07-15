@@ -97,7 +97,7 @@ public class ShareAppDialog extends AlertDialog.Builder {
             public void run()
             {
                 try {
-                    String textToShare = context.getString(R.string.text_linkTrebleshot,
+                    String textToShare = context.getString(R.string.text_linkShareindia,
                             AppConfig.URI_GOOGLE_PLAY);
 
                     Intent sendIntent = new Intent(Intent.ACTION_SEND)
