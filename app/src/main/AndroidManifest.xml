@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.project.christinkcdev.share.shareindia">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -18,22 +19,40 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.ViewTransferActivity"></activity>
+        android:theme="@style/Theme.ShareIndia"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.BarcodeScannerActivity"></activity>
+        <activity android:name=".activity.FilePickerActivity" />
+        <activity android:name=".activity.ThirdPartyLibrariesActivity" />
+        <activity android:name=".activity.ChangeStoragePathActivity" />
+        <activity android:name=".activity.ConnectionManagerActivity" />
+        <activity android:name=".activity.ContentSharingActivity" />
+        <activity android:name=".activity.ViewTransferActivity" />
         <activity android:name=".activity.FileExplorerActivity" />
-        <activity android:name=".activity.ShareActivity" />
+        <activity android:name=".activity.ShareActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="genonbeta.intent.action.TREBLESHOT_SEND_TEXT"/> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity android:name=".activity.PreferencesActivity" />
         <activity android:name=".activity.WebShareActivity" />
-        <activity android:name=".activity.AboutActivity" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:theme="@style/Theme.ShareIndia.NoActionBar" />
         <activity android:name=".activity.ManageDevicesActivity" />
         <activity android:name=".activity.ChangelogActivity" />
-        <activity android:name=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.ShareIndia.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,16 +68,14 @@
             android:name=".service.CommunicationService"
             android:enabled="true"
             android:label="@string/text_communicationService"
-            android:process=":transfer" />
-
-<!--        <service-->
-<!--            android:name=".service.DeviceChooserService"-->
-<!--            android:label="@string/text_chooserTargetService"-->
-<!--            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.service.chooser.ChooserTargetService" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
+            android:process=":transfer" /> <!-- <service -->
+        <!-- android:name=".service.DeviceChooserService" -->
+        <!-- android:label="@string/text_chooserTargetService" -->
+        <!-- android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.service.chooser.ChooserTargetService" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
         <service android:name=".service.DeviceScannerService">
             <intent-filter>
                 <action android:name="genonbeta.intent.action.SCAN_DEVICES" />
@@ -67,22 +84,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-
         <service
             android:name=".service.WorkerService"
             android:label="@string/text_workerService" />
-
-<!--        <service-->
-<!--            android:name=".service.CommunicationToggleTile"-->
-<!--            android:icon="@drawable/ic_trebleshot_white_24dp_static"-->
-<!--            android:label="@string/text_shareFiles"-->
-<!--            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"-->
-<!--            android:process=":transfer">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.service.quicksettings.action.QS_TILE" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
-
     </application>
 
 </manifest>

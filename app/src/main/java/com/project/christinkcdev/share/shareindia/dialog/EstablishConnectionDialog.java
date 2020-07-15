@@ -1,5 +1,6 @@
 package com.project.christinkcdev.share.shareindia.dialog;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 
 import androidx.annotation.Nullable;
@@ -10,7 +11,6 @@ import com.genonbeta.android.database.SQLQuery;
 import com.genonbeta.android.framework.util.Interrupter;
 import com.genonbeta.android.framework.util.MathUtils;
 import com.project.christinkcdev.share.shareindia.R;
-import com.project.christinkcdev.share.shareindia.app.Activity;
 import com.project.christinkcdev.share.shareindia.app.ProgressDialog;
 import com.project.christinkcdev.share.shareindia.callback.OnDeviceSelectedListener;
 import com.project.christinkcdev.share.shareindia.database.AccessDatabase;

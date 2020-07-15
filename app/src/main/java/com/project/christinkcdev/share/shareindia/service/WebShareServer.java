@@ -448,7 +448,7 @@ public class WebShareServer extends NanoHTTPD {
                     + packageInfo.versionName + ".apk";
 
             values.put("apk_link", "/trebleshot/" + fileName);
-            values.put("apk_filename", mContext.getString(R.string.text_dowloadTrebleshotAndroid));
+            values.put("apk_filename", mContext.getString(R.string.text_dowloadShareindiaAndroid));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

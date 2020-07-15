@@ -21,7 +21,7 @@
             android:id="@+id/menu_activity_main_send_application"
             android:icon="@drawable/ic_redo_white_24dp"
             android:orderInCategory="11"
-            android:title="@string/butn_shareTrebleshot" />
+            android:title="@string/butn_shareShareindia" />
 
         <item
             android:id="@+id/menu_activity_main_preferences"

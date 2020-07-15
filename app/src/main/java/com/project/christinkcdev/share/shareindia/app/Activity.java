@@ -396,14 +396,7 @@ public class Activity extends AppCompatActivity {
     public void notifyUserProfileChanged()
     {
         if (!isFinishing())
-            runOnUiThread(new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    onUserProfileUpdated();
-                }
-            });
+            runOnUiThread(() -> onUserProfileUpdated());
     }
 
     public void setSkipPermissionRequest(boolean skip)

@@ -10,21 +10,22 @@
     android:orientation="vertical">
 
     <include layout="@layout/include_layout_profile_picture" />
-<!--    style="@style/TextAppearance.Primary.Big.SingleLine"-->
 
     <TextView
         android:id="@+id/header_default_device_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
+        style="@style/TextAppearance.Primary.Big.SingleLine"
+    android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/text_unknown" />
 
-<!--    style="@style/TextAppearance.Secondary"-->
 
     <TextView
         android:id="@+id/header_default_device_version_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.Secondary"
+    />
 
 </LinearLayout>
