@@ -1,14 +1,13 @@
 package com.project.christinkcdev.share.shareindia.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.project.christinkcdev.share.shareindia.R;
+import com.project.christinkcdev.share.shareindia.app.Activity;
 
-public class ManageDevicesActivity extends AppCompatActivity {
+public class ManageDevicesActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
