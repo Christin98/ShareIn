@@ -33,7 +33,7 @@
 
         <fragment
             android:id="@+id/activity_file_explorer_fragment_files"
-            android:name="com.project.christinkcdev.share.shareindia.fragment.FileExplorerFragment"
+            android:name="com.project.christinkcdev.share.sharein.fragment.FileExplorerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

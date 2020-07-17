@@ -23,7 +23,7 @@
         android:layout_centerVertical="true"
         android:background="?contentShowingBackground">
 
-        <com.project.christinkcdev.share.shareindia.view.SelectionIllustratorImageView
+        <com.project.christinkcdev.share.sharein.view.SelectionIllustratorImageView
             android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

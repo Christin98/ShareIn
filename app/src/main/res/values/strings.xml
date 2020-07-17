@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShareIndia</string>
+    <string name="app_name">ShareIn</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_navigationDrawerOpen">Open navigation drawer</string>n
     <string name="text_navigationDrawerClose">Close navigation drawer</string>
@@ -387,7 +387,7 @@
     <string name="mesg_fileReceiveFilesLeftError">Failed to receive some files</string>
     <string name="text_send">Send</string>
     <string name="butn_send" translatable="false">@string/text_send</string>
-    <string name="text_connectionHelp">Choose an option to connect to the other device. For instance, if the other device is showing a QR code, use Scan QR code option.</string>
+    <string name="text_connectionHelp">Choose an option to connect to the other device. Please Don\'t use IP Address option as its in development.</string>
     <string name="ques_needHelp">Need a helping hand?</string>
     <string name="text_connectionWizard">Connection wizard</string>
     <string name="ques_connectionWizardIsOtherDeviceReady">Have you just set things up on the other device?</string>
@@ -464,5 +464,6 @@
     <string name="mesg_qrScannerDefaultMode">Back to the default actions for QR codes</string>
     <string name="butn_showAsQrCode">Show as QR code</string>
     <string name="text_showAsQrCode" translatable="false">@string/butn_showAsQrCode</string>
+    <string name="rate_us">Rate Us</string>
 
 </resources>

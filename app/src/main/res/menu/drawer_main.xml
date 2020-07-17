@@ -59,23 +59,29 @@
 
 <!--    </group>-->
 
+
     <group android:id="@+id/nav_group_support">
         <item
             android:id="@+id/menu_activity_feedback"
             android:icon="@drawable/ic_email_white_24dp"
             android:orderInCategory="16"
             android:title="@string/butn_feedbackContact" />
+        <item
+            android:id="@+id/rate_us"
+            android:icon="@drawable/ic_baseline_star_24"
+            android:orderInCategory="17"
+            android:title="@string/rate_us"/>
 
         <item
             android:id="@+id/menu_activity_main_donate"
             android:icon="@drawable/ic_favorite_white_24dp"
-            android:orderInCategory="17"
+            android:orderInCategory="18"
             android:title="@string/butn_donate"
             android:visible="false" />
 
         <item
             android:id="@+id/menu_activity_main_ts_dt"
-            android:orderInCategory="18"
+            android:orderInCategory="19"
             app:actionLayout="@layout/layout_main_navigationview_footer"
             tools:ignore="MenuTitle" />
 
