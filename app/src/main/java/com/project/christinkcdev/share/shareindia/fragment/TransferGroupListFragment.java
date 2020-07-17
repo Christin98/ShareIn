@@ -101,25 +101,11 @@ public class TransferGroupListFragment  extends GroupEditableListFragment<Transf
         View viewSend = view.findViewById(R.id.sendLayoutButton);
         View viewReceive = view.findViewById(R.id.receiveLayoutButton);
 
-        viewSend.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(getContext(), ContentSharingActivity.class));
-            }
-        });
+        viewSend.setOnClickListener(v -> startActivity(new Intent(getContext(), ContentSharingActivity.class)));
 
-        viewReceive.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(getContext(), ConnectionManagerActivity.class)
-                        .putExtra(ConnectionManagerActivity.EXTRA_ACTIVITY_SUBTITLE, getString(R.string.text_receive))
-                        .putExtra(ConnectionManagerActivity.EXTRA_REQUEST_TYPE, ConnectionManagerActivity.RequestType.MAKE_ACQUAINTANCE.toString()));
-            }
-        });
+        viewReceive.setOnClickListener(v -> startActivity(new Intent(getContext(), ConnectionManagerActivity.class)
+                .putExtra(ConnectionManagerActivity.EXTRA_ACTIVITY_SUBTITLE, getString(R.string.text_receive))
+                .putExtra(ConnectionManagerActivity.EXTRA_REQUEST_TYPE, ConnectionManagerActivity.RequestType.MAKE_ACQUAINTANCE.toString())));
     }
 
     @Override

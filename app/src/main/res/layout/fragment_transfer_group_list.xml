@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
+                android:textColor="#000"
                 android:text="@string/butn_send" />
 
         </LinearLayout>
@@ -43,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
+                android:textColor="#000"
                 android:text="@string/butn_receive" />
 
         </LinearLayout>

@@ -141,7 +141,7 @@ public class AppUtils {
     public static DocumentFile createLog(Context context)
     {
         DocumentFile saveDirectory = FileUtils.getApplicationDirectory(context);
-        String fileName = FileUtils.getUniqueFileName(saveDirectory, "trebleshot_log.txt", true);
+        String fileName = FileUtils.getUniqueFileName(saveDirectory, "shareindia_log.txt", true);
         DocumentFile logFile = saveDirectory.createFile(null, fileName);
         ActivityManager activityManager = (ActivityManager) context.getSystemService(
                 Service.ACTIVITY_SERVICE);
@@ -217,24 +217,10 @@ public class AppUtils {
     {
         if (mDefaultPreferences == null) {
             DbSharablePreferences databasePreferences = new DbSharablePreferences(context, "__default", true)
-                    .setUpdateListener(new DbSharablePreferences.AsynchronousUpdateListener()
-                    {
-                        @Override
-                        public void onCommitComplete()
-                        {
-                            context.sendBroadcast(new Intent(App.ACTION_REQUEST_PREFERENCES_SYNC));
-                        }
-                    });
+                    .setUpdateListener(() -> context.sendBroadcast(new Intent(App.ACTION_REQUEST_PREFERENCES_SYNC)));
 
             mDefaultPreferences = new SuperPreferences(databasePreferences);
-            mDefaultPreferences.setOnPreferenceUpdateListener(new SuperPreferences.OnPreferenceUpdateListener()
-            {
-                @Override
-                public void onPreferenceUpdate(SuperPreferences superPreferences, boolean commit)
-                {
-                    PreferenceUtils.syncPreferences(superPreferences, getDefaultLocalPreferences(context).getWeakManager());
-                }
-            });
+            mDefaultPreferences.setOnPreferenceUpdateListener((superPreferences, commit) -> PreferenceUtils.syncPreferences(superPreferences, getDefaultLocalPreferences(context).getWeakManager()));
         }
 
         return mDefaultPreferences;
@@ -245,14 +231,7 @@ public class AppUtils {
         if (mDefaultLocalPreferences == null) {
             mDefaultLocalPreferences = new SuperPreferences(PreferenceManager.getDefaultSharedPreferences(context));
 
-            mDefaultLocalPreferences.setOnPreferenceUpdateListener(new SuperPreferences.OnPreferenceUpdateListener()
-            {
-                @Override
-                public void onPreferenceUpdate(SuperPreferences superPreferences, boolean commit)
-                {
-                    PreferenceUtils.syncPreferences(superPreferences, getDefaultPreferences(context).getWeakManager());
-                }
-            });
+            mDefaultLocalPreferences.setOnPreferenceUpdateListener((superPreferences, commit) -> PreferenceUtils.syncPreferences(superPreferences, getDefaultPreferences(context).getWeakManager()));
         }
 
         return mDefaultLocalPreferences;

@@ -2,7 +2,7 @@
 <resources>
     <!-- prototype start -->
     <style name="Theme.Prototype.ShareIndia.Base" parent="Theme.MaterialComponents.Light">
-        <!--<item name="actionBarPopupTheme">@style/Widget.ShareIndia.PopupTheme</item>-->
+        <item name="actionBarPopupTheme">@style/Widget.ShareIndia.PopupTheme</item>
         <item name="alertDialogTheme">@style/Widget.ShareIndia.DialogTheme</item>
         <item name="buttonStyle">@style/Widget.ShareIndia.ButtonStyle</item>
         <item name="borderlessButtonStyle">@style/Widget.ShareIndia.ButtonStyle.TextButton</item>

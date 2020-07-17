@@ -43,34 +43,17 @@ public class ApplicationListFragment  extends EditableListFragment<ApplicationLi
     @Override
     public ApplicationListAdapter onAdapter()
     {
-        final AppUtils.QuickActions<EditableListAdapter.EditableViewHolder> quickActions = new AppUtils.QuickActions<EditableListAdapter.EditableViewHolder>()
-        {
-            @Override
-            public void onQuickActions(final EditableListAdapter.EditableViewHolder clazz)
-            {
-                registerLayoutViewClicks(clazz);
+        final AppUtils.QuickActions<EditableListAdapter.EditableViewHolder> quickActions = clazz -> {
+            registerLayoutViewClicks(clazz);
 
-                clazz.getView().findViewById(R.id.visitView).setOnClickListener(
-                        new View.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(View v)
-                            {
-                                performLayoutClickOpen(clazz);
-                            }
-                        });
+            clazz.getView().findViewById(R.id.visitView).setOnClickListener(
+                    v -> performLayoutClickOpen(clazz));
 
-                clazz.getView().findViewById(R.id.selector).setOnClickListener(
-                        new View.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(View v)
-                            {
-                                if (getSelectionConnection() != null)
-                                    getSelectionConnection().setSelected(clazz.getAdapterPosition());
-                            }
-                        });
-            }
+            clazz.getView().findViewById(R.id.selector).setOnClickListener(
+                    v -> {
+                        if (getSelectionConnection() != null)
+                            getSelectionConnection().setSelected(clazz.getAdapterPosition());
+                    });
         };
 
         return new ApplicationListAdapter(getActivity(), AppUtils.getDefaultPreferences(getContext()))
@@ -143,14 +126,7 @@ public class ApplicationListFragment  extends EditableListFragment<ApplicationLi
 
                 dialogBuilder.setMessage(R.string.ques_launchApplication);
                 dialogBuilder.setNegativeButton(R.string.butn_cancel, null);
-                dialogBuilder.setPositiveButton(R.string.butn_appLaunch, new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        startActivity(launchIntent);
-                    }
-                });
+                dialogBuilder.setPositiveButton(R.string.butn_appLaunch, (dialog, which) -> startActivity(launchIntent));
 
                 dialogBuilder.show();
             } else

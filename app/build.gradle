@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "30.0.0"
+    buildToolsVersion "30.0.1"
 
     defaultConfig {
         applicationId "com.project.christinkcdev.share.shareindia"
@@ -18,8 +18,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     buildTypes {
         release {
+            versionNameSuffix '-REL'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -37,7 +43,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.3.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta7'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta8'
     implementation 'com.google.android.material:material:1.3.0-alpha01'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.preference:preference:1.1.1'

@@ -46,12 +46,12 @@ public class CommunicationNotificationHelper {
 
         builder.append(getContext().getString(R.string.text_communicationServiceRunning));
 
-        notification.setSmallIcon(R.drawable.ic_trebleshot_rounded_white_24dp_static)
+        notification.setSmallIcon(R.drawable.ic_shareindia_24dp)
                 .setContentTitle(builder.toString())
                 .setContentText(getContext().getString(R.string.text_communicationServiceStop))
                 .setAutoCancel(true)
-                .addAction(R.drawable.ic_compare_arrows_white_24dp_static, getContext().getString(seamlessMode ? R.string.butn_turnTrustZoneOff : R.string.butn_turnTrustZoneOn),
-                        PendingIntent.getService(getContext(), AppUtils.getUniqueNumber(), new Intent(getContext(), CommunicationService.class).setAction(CommunicationService.ACTION_TOGGLE_SEAMLESS_MODE), PendingIntent.FLAG_CANCEL_CURRENT))
+//                .addAction(R.drawable.ic_compare_arrows_white_24dp_static, getContext().getString(seamlessMode ? R.string.butn_turnTrustZoneOff : R.string.butn_turnTrustZoneOn),
+//                        PendingIntent.getService(getContext(), AppUtils.getUniqueNumber(), new Intent(getContext(), CommunicationService.class).setAction(CommunicationService.ACTION_TOGGLE_SEAMLESS_MODE), PendingIntent.FLAG_CANCEL_CURRENT))
                 .setContentIntent(PendingIntent.getService(getContext(), AppUtils.getUniqueNumber(), new Intent(getContext(), CommunicationService.class)
                         .setAction(CommunicationService.ACTION_END_SESSION), 0));
 

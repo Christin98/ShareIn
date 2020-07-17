@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_mode_share_trebleshot"
+        android:id="@+id/action_mode_share_shareindia"
         android:icon="@drawable/ic_send_white_24dp"
         android:title="@string/butn_shareWithShareindia"
-        app:showAsAction="always" />
+        android:showAsAction="always"
+        tools:ignore="AppCompatResource" />
 
     <item
         android:id="@+id/action_mode_share_all_apps"

@@ -48,7 +48,7 @@ public class SharingActionModeCallback<T extends Shareable> extends EditableList
         List<T> selectedItemList = new ArrayList<>(getFragment().getSelectionConnection().getSelectedItemList());
 
         if (selectedItemList.size() > 0
-                && (id == R.id.action_mode_share_trebleshot || id == R.id.action_mode_share_all_apps)) {
+                && (id == R.id.action_mode_share_shareindia || id == R.id.action_mode_share_all_apps)) {
             Intent shareIntent = new Intent()
                     .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     .setAction((item.getItemId() == R.id.action_mode_share_all_apps)

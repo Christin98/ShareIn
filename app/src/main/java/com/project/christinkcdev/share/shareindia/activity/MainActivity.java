@@ -62,7 +62,7 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
         mActionMode = findViewById(R.id.content_powerful_action_mode);
         mNavigationView = findViewById(R.id.nav_view);
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        mTrustZoneToggle = mNavigationView.getMenu().findItem(R.id.menu_activity_trustzone);
+//        mTrustZoneToggle = mNavigationView.getMenu().findItem(R.id.menu_activity_trustzone);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.text_navigationDrawerOpen, R.string.text_navigationDrawerClose);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -179,9 +179,11 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
         } else if (R.id.menu_activity_main_send_application == mChosenMenuItemId) {
             new ShareAppDialog(MainActivity.this)
                     .show();
-        } else if (R.id.menu_activity_main_web_share == mChosenMenuItemId) {
-            startActivity(new Intent(this, WebShareActivity.class));
-        } else if (R.id.menu_activity_main_preferences == mChosenMenuItemId) {
+        }
+//        else if (R.id.menu_activity_main_web_share == mChosenMenuItemId) {
+//            startActivity(new Intent(this, WebShareActivity.class));
+//        }
+        else if (R.id.menu_activity_main_preferences == mChosenMenuItemId) {
             startActivity(new Intent(this, PreferencesActivity.class));
         } else if (R.id.menu_activity_main_exit == mChosenMenuItemId) {
             exitApp();
@@ -209,9 +211,10 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
             builder.show();
         } else if (R.id.menu_activity_feedback == mChosenMenuItemId) {
             AppUtils.createFeedbackIntent(MainActivity.this);
-        } else if (R.id.menu_activity_trustzone == mChosenMenuItemId) {
-            toggleTrustZone();
         }
+//        else if (R.id.menu_activity_trustzone == mChosenMenuItemId) {
+//            toggleTrustZone();
+//        }
 
         mChosenMenuItemId = 0;
     }
