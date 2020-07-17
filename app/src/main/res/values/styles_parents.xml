@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- prototype start -->
-    <style name="Theme.Prototype.ShareIndia.Base" parent="Theme.MaterialComponents.Light">
-        <item name="actionBarPopupTheme">@style/Widget.ShareIndia.PopupTheme</item>
-        <item name="alertDialogTheme">@style/Widget.ShareIndia.DialogTheme</item>
-        <item name="buttonStyle">@style/Widget.ShareIndia.ButtonStyle</item>
-        <item name="borderlessButtonStyle">@style/Widget.ShareIndia.ButtonStyle.TextButton</item>
-        <item name="bottomNavigationStyle">@style/Widget.ShareIndia.BottomNavigationView</item>
-        <item name="cardViewStyle">@style/Widget.ShareIndia.CardView</item>
+    <style name="Theme.Prototype.ShareIn.Base" parent="Theme.MaterialComponents.Light">
+        <item name="actionBarPopupTheme">@style/Widget.ShareIn.PopupTheme</item>
+        <item name="alertDialogTheme">@style/Widget.ShareIn.DialogTheme</item>
+        <item name="buttonStyle">@style/Widget.ShareIn.ButtonStyle</item>
+        <item name="borderlessButtonStyle">@style/Widget.ShareIn.ButtonStyle.TextButton</item>
+        <item name="bottomNavigationStyle">@style/Widget.ShareIn.BottomNavigationView</item>
+        <item name="cardViewStyle">@style/Widget.ShareIn.CardView</item>
         <item name="colorControlNormal">@color/colorControlNormal</item>
         <item name="colorError">@color/colorError</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
@@ -18,14 +18,14 @@
         <item name="colorPrimaryDark23">@color/colorPrimaryDark23</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSurface">@color/colorSurface</item>
-        <item name="dialogTheme">@style/Widget.ShareIndia.DialogTheme</item>
-        <item name="floatingActionButtonStyle">@style/Widget.ShareIndia.FloatingActionButtonStyle</item>
-        <item name="materialButtonStyle">@style/Widget.ShareIndia.ButtonStyle</item>
-        <item name="navigationViewStyle">@style/Widget.ShareIndia.NavigationView</item>
-        <item name="android:popupMenuStyle">@style/Widget.ShareIndia.PopupMenuStyle</item>
-        <item name="popupTheme">@style/Widget.ShareIndia.PopupTheme</item>
-        <!--<item name="snackbarStyle">@style/Widget.ShareIndia.Snackbar</item>-->
-        <item name="tabStyle">@style/Widget.ShareIndia.TabLayout</item>
+        <item name="dialogTheme">@style/Widget.ShareIn.DialogTheme</item>
+        <item name="floatingActionButtonStyle">@style/Widget.ShareIn.FloatingActionButtonStyle</item>
+        <item name="materialButtonStyle">@style/Widget.ShareIn.ButtonStyle</item>
+        <item name="navigationViewStyle">@style/Widget.ShareIn.NavigationView</item>
+        <item name="android:popupMenuStyle">@style/Widget.ShareIn.PopupMenuStyle</item>
+        <item name="popupTheme">@style/Widget.ShareIn.PopupTheme</item>
+        <!--<item name="snackbarStyle">@style/Widget.ShareIn.Snackbar</item>-->
+        <item name="tabStyle">@style/Widget.ShareIn.TabLayout</item>
         <item name="textAppearanceButton">@style/TextAppearance.Button</item>
         <!--<item name="android:textColorPrimary">@color/colorControlNormal</item>-->
         <item name="android:windowBackground">@color/windowBackground</item>
@@ -72,13 +72,13 @@
         <item name="genfw_customListFragmentEmptyActionButtonStyle">?buttonStyle</item>
     </style>
 
-    <style name="Theme.Prototype.ShareIndia.Dark.Base" parent="Theme.MaterialComponents">
-        <!--<item name="actionBarPopupTheme">@style/Widget.ShareIndia.PopupTheme</item>-->
-        <item name="alertDialogTheme">@style/Widget.ShareIndia.DialogTheme</item>
-        <item name="buttonStyle">@style/Widget.ShareIndia.ButtonStyle</item>
-        <item name="borderlessButtonStyle">@style/Widget.ShareIndia.ButtonStyle.TextButton</item>
-        <item name="bottomNavigationStyle">@style/Widget.ShareIndia.BottomNavigationView</item>
-        <item name="cardViewStyle">@style/Widget.ShareIndia.CardView</item>
+    <style name="Theme.Prototype.ShareIn.Dark.Base" parent="Theme.MaterialComponents">
+        <!--<item name="actionBarPopupTheme">@style/Widget.ShareIn.PopupTheme</item>-->
+        <item name="alertDialogTheme">@style/Widget.ShareIn.DialogTheme</item>
+        <item name="buttonStyle">@style/Widget.ShareIn.ButtonStyle</item>
+        <item name="borderlessButtonStyle">@style/Widget.ShareIn.ButtonStyle.TextButton</item>
+        <item name="bottomNavigationStyle">@style/Widget.ShareIn.BottomNavigationView</item>
+        <item name="cardViewStyle">@style/Widget.ShareIn.CardView</item>
         <item name="colorControlNormal">@color/dark_colorControlNormal</item>
         <item name="colorError">@color/dark_colorError</item>
         <item name="colorOnPrimary">@color/dark_colorOnPrimary</item>
@@ -89,14 +89,14 @@
         <item name="colorPrimaryDark23">@color/dark_colorPrimaryDark23</item>
         <item name="colorSecondary">@color/dark_colorSecondary</item>
         <item name="colorSurface">@color/dark_colorSurface</item>
-        <item name="dialogTheme">@style/Widget.ShareIndia.DialogTheme</item>
-        <item name="floatingActionButtonStyle">@style/Widget.ShareIndia.FloatingActionButtonStyle</item>
-        <item name="materialButtonStyle">@style/Widget.ShareIndia.ButtonStyle</item>
-        <item name="navigationViewStyle">@style/Widget.ShareIndia.NavigationView</item>
-        <item name="android:popupMenuStyle">@style/Widget.ShareIndia.PopupMenuStyle</item>
-        <item name="popupTheme">@style/Widget.ShareIndia.PopupTheme</item>
-        <!--<item name="snackbarStyle">@style/Widget.ShareIndia.Snackbar</item>-->
-        <item name="tabStyle">@style/Widget.ShareIndia.TabLayout</item>
+        <item name="dialogTheme">@style/Widget.ShareIn.DialogTheme</item>
+        <item name="floatingActionButtonStyle">@style/Widget.ShareIn.FloatingActionButtonStyle</item>
+        <item name="materialButtonStyle">@style/Widget.ShareIn.ButtonStyle</item>
+        <item name="navigationViewStyle">@style/Widget.ShareIn.NavigationView</item>
+        <item name="android:popupMenuStyle">@style/Widget.ShareIn.PopupMenuStyle</item>
+        <item name="popupTheme">@style/Widget.ShareIn.PopupTheme</item>
+        <!--<item name="snackbarStyle">@style/Widget.ShareIn.Snackbar</item>-->
+        <item name="tabStyle">@style/Widget.ShareIn.TabLayout</item>
         <item name="textAppearanceButton">@style/TextAppearance.Button</item>
         <!--<item name="android:textColorPrimary">@color/dark_colorControlNormal</item>-->
         <item name="android:windowBackground">@color/dark_windowBackground</item>
@@ -145,16 +145,16 @@
     <!-- prototype end -->
 
     <!-- generalization start -->
-    <style name="Theme.ShareIndia.Base" parent="Theme.Prototype.ShareIndia.Base" />
+    <style name="Theme.ShareIn.Base" parent="Theme.Prototype.ShareIn.Base" />
 
-    <style name="Theme.ShareIndia.Dark.Base" parent="Theme.Prototype.ShareIndia.Dark.Base" />
+    <style name="Theme.ShareIn.Dark.Base" parent="Theme.Prototype.ShareIn.Dark.Base" />
 
-    <style name="Theme.ShareIndia.Base.NoActionBar" parent="@style/Theme.ShareIndia.Base">
+    <style name="Theme.ShareIn.Base.NoActionBar" parent="@style/Theme.ShareIn.Base">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.ShareIndia.Dark.Base.NoActionBar" parent="@style/Theme.ShareIndia.Dark.Base">
+    <style name="Theme.ShareIn.Dark.Base.NoActionBar" parent="@style/Theme.ShareIn.Dark.Base">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

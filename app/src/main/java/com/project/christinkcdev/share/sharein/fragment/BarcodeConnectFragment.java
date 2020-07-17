@@ -238,14 +238,7 @@ public class BarcodeConnectFragment extends com.genonbeta.android.framework.app.
 
     protected void handleBarcode(final String code)
     {
-        final DialogInterface.OnDismissListener dismissListener = new DialogInterface.OnDismissListener()
-        {
-            @Override
-            public void onDismiss(DialogInterface dialog)
-            {
-                updateState();
-            }
-        };
+        final DialogInterface.OnDismissListener dismissListener = dialog -> updateState();
 
         try {
             //mPreviousScanResult = code; // Fail-safe
@@ -286,14 +279,7 @@ public class BarcodeConnectFragment extends com.genonbeta.android.framework.app.
                     new AlertDialog.Builder(getActivity())
                             .setMessage(R.string.mesg_errorNotSameNetwork)
                             .setNegativeButton(R.string.butn_close, null)
-                            .setPositiveButton(R.string.butn_skip, new DialogInterface.OnClickListener()
-                            {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which)
-                                {
-                                    makeAcquaintance(ipAddress, accessPin);
-                                }
-                            })
+                            .setPositiveButton(R.string.butn_skip, (dialog, which) -> makeAcquaintance(ipAddress, accessPin))
                             .setOnDismissListener(dismissListener)
                             .show();
                 }
@@ -383,14 +369,7 @@ public class BarcodeConnectFragment extends com.genonbeta.android.framework.app.
 
         mTaskContainer.setVisibility(isConnecting ? View.VISIBLE : View.GONE);
 
-        mTaskInterruptButton.setOnClickListener(isConnecting ? new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                interrupter.interrupt();
-            }
-        } : null);
+        mTaskInterruptButton.setOnClickListener(isConnecting ? (View.OnClickListener) v -> interrupter.interrupt() : null);
     }
 
     public void updateState()
@@ -413,14 +392,7 @@ public class BarcodeConnectFragment extends com.genonbeta.android.framework.app.
                 mConductText.setText(R.string.text_cameraPermissionRequired);
                 mConductButton.setText(R.string.butn_ask);
 
-                mConductButton.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA);
-                    }
-                });
+                mConductButton.setOnClickListener(v -> ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA));
 
                 if (!mPermissionRequestedCamera)
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA);
@@ -431,14 +403,7 @@ public class BarcodeConnectFragment extends com.genonbeta.android.framework.app.
                 mConductText.setText(R.string.mesg_locationPermissionRequiredAny);
                 mConductButton.setText(R.string.butn_enable);
 
-                mConductButton.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        mConnectionUtils.validateLocationPermission(getActivity(), REQUEST_PERMISSION_LOCATION, mPermissionWatcher);
-                    }
-                });
+                mConductButton.setOnClickListener(v -> mConnectionUtils.validateLocationPermission(getActivity(), REQUEST_PERMISSION_LOCATION, mPermissionWatcher));
 
                 if (!mPermissionRequestedLocation)
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_PERMISSION_CAMERA);
@@ -449,14 +414,7 @@ public class BarcodeConnectFragment extends com.genonbeta.android.framework.app.
                 mConductText.setText(R.string.text_scanQRWifiRequired);
                 mConductButton.setText(R.string.butn_enable);
 
-                mConductButton.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        mConnectionUtils.turnOnWiFi(getActivity(), REQUEST_TURN_WIFI_ON, mPermissionWatcher);
-                    }
-                });
+                mConductButton.setOnClickListener(v -> mConnectionUtils.turnOnWiFi(getActivity(), REQUEST_TURN_WIFI_ON, mPermissionWatcher));
             }
         } else {
             mBarcodeView.resume();

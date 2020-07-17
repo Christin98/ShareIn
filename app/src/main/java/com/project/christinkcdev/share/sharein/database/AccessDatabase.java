@@ -431,14 +431,7 @@ public class AccessDatabase extends SQLiteDatabase {
 
     public void removeAsynchronous(Activity activity, final List<? extends DatabaseObject> objects)
     {
-        removeAsynchronous(activity, new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                remove(objects);
-            }
-        });
+        removeAsynchronous(activity, () -> remove(objects));
     }
 
     public void removeAsynchronous(Activity activity, final Runnable runnable)

@@ -77,18 +77,18 @@ public class TransferAssigneeListFragment  extends EditableListFragment<ShowingA
 
         setEmptyImage(R.drawable.ic_device_hub_white_24dp);
         setEmptyText(getString(R.string.text_noDeviceForTransfer));
-        useEmptyActionButton(getString(R.string.butn_shareOnBrowser), v -> {
-            mHeldGroup.isServedOnWeb = !mHeldGroup.isServedOnWeb;
-            AppUtils.getDatabase(getContext()).update(mHeldGroup);
+//        useEmptyActionButton(getString(R.string.butn_shareOnBrowser), v -> {
+//            mHeldGroup.isServedOnWeb = !mHeldGroup.isServedOnWeb;
+//            AppUtils.getDatabase(getContext()).update(mHeldGroup);
+//
+//            if (mHeldGroup.isServedOnWeb)
+//                AppUtils.startWebShareActivity(getActivity(), true);
+//        });
 
-            if (mHeldGroup.isServedOnWeb)
-                AppUtils.startWebShareActivity(getActivity(), true);
-        });
-
-        getEmptyActionButton().setOnLongClickListener(v -> {
-            AppUtils.startWebShareActivity(getActivity(), false);
-            return true;
-        });
+//        getEmptyActionButton().setOnLongClickListener(v -> {
+//            AppUtils.startWebShareActivity(getActivity(), false);
+//            return true;
+//        });
 
         updateTransferGroup();
 
@@ -209,8 +209,8 @@ public class TransferAssigneeListFragment  extends EditableListFragment<ShowingA
     {
         try {
             AppUtils.getDatabase(getContext()).reconstruct(mHeldGroup);
-            getEmptyActionButton().setText(mHeldGroup.isServedOnWeb ? R.string.butn_hideOnBrowser
-                    : R.string.butn_shareOnBrowser);
+//            getEmptyActionButton().setText(mHeldGroup.isServedOnWeb ? R.string.butn_hideOnBrowser
+//                    : R.string.butn_shareOnBrowser);
         } catch (Exception e) {
             e.printStackTrace();
         }

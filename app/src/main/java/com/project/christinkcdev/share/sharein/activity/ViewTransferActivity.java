@@ -50,7 +50,7 @@ public class ViewTransferActivity extends Activity implements PowerfulActionMode
 
     public static final String TAG = ViewTransferActivity.class.getSimpleName();
 
-    public static final String ACTION_LIST_TRANSFERS = "com.project.christinkcdev.share.shareindia.action.LIST_TRANSFERS";
+    public static final String ACTION_LIST_TRANSFERS = "com.project.christinkcdev.share.sharein.action.LIST_TRANSFERS";
     public static final String EXTRA_GROUP_ID = "extraGroupId";
     public static final String EXTRA_REQUEST_ID = "extraRequestId";
     public static final String EXTRA_DEVICE_ID = "extraDeviceId";
@@ -287,7 +287,7 @@ public class ViewTransferActivity extends Activity implements PowerfulActionMode
         mAddDeviceMenu = menu.findItem(R.id.actions_transfer_sender_add_device);
         mSettingsMenu = menu.findItem(R.id.actions_transfer_settings);
         mWebShareShortcut = menu.findItem(R.id.actions_transfer_web_share_shortcut);
-        mToggleBrowserShare = menu.findItem(R.id.actions_transfer_toggle_browser_share);
+//        mToggleBrowserShare = menu.findItem(R.id.actions_transfer_toggle_browser_share);
 
         showMenus();
 
@@ -352,13 +352,13 @@ public class ViewTransferActivity extends Activity implements PowerfulActionMode
                 new SelectAssigneeDialog(this, assignee, (dialog, which) -> new EstablishConnectionDialog(ViewTransferActivity.this,
                         assignee.get(which).device, null).show()).show();
             }
-        } else if (item.getItemId() == R.id.actions_transfer_toggle_browser_share) {
-            mGroup.isServedOnWeb = !mGroup.isServedOnWeb;
-            getDatabase().update(mGroup);
-            showMenus();
-
-            if (mGroup.isServedOnWeb)
-                AppUtils.startWebShareActivity(this, true);
+//        } else if (item.getItemId() == R.id.actions_transfer_toggle_browser_share) {
+//            mGroup.isServedOnWeb = !mGroup.isServedOnWeb;
+//            getDatabase().update(mGroup);
+//            showMenus();
+//
+//            if (mGroup.isServedOnWeb)
+//                AppUtils.startWebShareActivity(this, true);
         } else if (item.getGroupId() == R.id.actions_abs_view_transfer_activity_settings) {
             mDeviceId = item.getOrder() < mTransactionIndex.assignees.size()
                     ? mTransactionIndex.assignees.get(item.getOrder()).deviceId
@@ -484,9 +484,9 @@ public class ViewTransferActivity extends Activity implements PowerfulActionMode
         } else
             mToggleMenu.setVisible(false);
 
-        mToggleBrowserShare.setTitle(mGroup.isServedOnWeb ? R.string.butn_hideOnBrowser
-                : R.string.butn_shareOnBrowser);
-        mToggleBrowserShare.setVisible(hasOutgoing || mGroup.isServedOnWeb);
+//        mToggleBrowserShare.setTitle(mGroup.isServedOnWeb ? R.string.butn_hideOnBrowser
+//                : R.string.butn_shareOnBrowser);
+//        mToggleBrowserShare.setVisible(hasOutgoing || mGroup.isServedOnWeb);
         mWebShareShortcut.setVisible(hasOutgoing && mGroup.isServedOnWeb);
         mCnTestMenu.setVisible(hasAnyFiles);
         mAddDeviceMenu.setVisible(hasOutgoing);

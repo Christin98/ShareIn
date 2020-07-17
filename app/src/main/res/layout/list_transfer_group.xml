@@ -23,7 +23,7 @@
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                style="@style/Widget.ShareIndia.ProgressBar.Horizontal.Oval"
+                style="@style/Widget.ShareIn.ProgressBar.Horizontal.Oval"
             />
 
             <ImageView

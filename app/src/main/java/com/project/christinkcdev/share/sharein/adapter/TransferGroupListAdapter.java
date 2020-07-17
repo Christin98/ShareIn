@@ -71,8 +71,8 @@ public class TransferGroupListAdapter extends GroupEditableListAdapter<TransferG
                 assigneesText.append(showingAssignee.device.nickname);
             }
 
-            if (assigneesText.length() == 0 && group.isServedOnWeb)
-                assigneesText.append(getContext().getString(R.string.text_transferSharedOnBrowser));
+//            if (assigneesText.length() == 0 && group.isServedOnWeb)
+//                assigneesText.append(getContext().getString(R.string.text_transferSharedOnBrowser));
 
             group.assignees = assigneesText.length() > 0
                     ? assigneesText.toString()

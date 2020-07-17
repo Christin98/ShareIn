@@ -27,16 +27,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ShareIndia"
+        android:theme="@style/Theme.ShareIn"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.AddDevicesToTransferActivity"
             android:label="@string/text_addDevicesToTransfer"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar"/>
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar"/>
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.BarcodeScannerActivity"
             android:label="@string/butn_scanQrCode"
-            android:theme="@style/Theme.ShareIndia.BarcodeScannerActivity"/>
+            android:theme="@style/Theme.ShareIn.BarcodeScannerActivity"/>
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.FilePickerActivity"
             android:label="@string/text_fileExplorer"/>
@@ -54,16 +54,16 @@
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.ConnectionManagerActivity"
             android:label="@string/text_connectDevices"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar"/>
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar"/>
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.ContentSharingActivity"
             android:label="@string/text_send"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar"/>
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar"/>
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.ViewTransferActivity"
             android:label="@string/text_transactionViewer"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar">
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -83,11 +83,11 @@
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.FileExplorerActivity"
             android:label="@string/text_fileExplorer"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar"/>
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar"/>
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.ShareActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar">
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar">
              <intent-filter>
                  <action android:name="genonbeta.intent.action.TREBLESHOT_SEND_TEXT"/>
                  <action android:name="android.intent.action.SEND" />
@@ -105,11 +105,11 @@
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.WebShareActivity"
             android:label="@string/text_webShare"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar"/>
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar"/>
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.AboutActivity"
             android:label="@string/text_about"
-            android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar" />
+            android:theme="@style/Theme.ShareIn.NoActionBar.StaticStatusBar" />
         <activity
             android:name="com.project.christinkcdev.share.sharein.activity.ManageDevicesActivity"
             android:label="@string/text_manageDevices"/>
@@ -120,7 +120,7 @@
             android:name="com.project.christinkcdev.share.sharein.activity.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.ShareIndia.NoActionBar">
+            android:theme="@style/Theme.ShareIn.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

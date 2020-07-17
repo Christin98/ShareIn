@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- generalization start -->
-    <style name="Theme.ShareIndia" parent="Theme.ShareIndia.Base" />
+    <style name="Theme.ShareIn" parent="Theme.ShareIn.Base" />
 
-    <style name="Theme.ShareIndia.NoActionBar" parent="Theme.ShareIndia.Base.NoActionBar" />
+    <style name="Theme.ShareIn.NoActionBar" parent="Theme.ShareIn.Base.NoActionBar" />
 
-    <style name="Theme.ShareIndia.NoActionBar.StaticStatusBar" parent="Theme.ShareIndia.NoActionBar" />
+    <style name="Theme.ShareIn.NoActionBar.StaticStatusBar" parent="Theme.ShareIn.NoActionBar" />
 
-    <style name="Theme.ShareIndia.Dark" parent="Theme.ShareIndia.Dark.Base" />
+    <style name="Theme.ShareIn.Dark" parent="Theme.ShareIn.Dark.Base" />
 
-    <style name="Theme.ShareIndia.Dark.NoActionBar" parent="Theme.ShareIndia.Dark.Base.NoActionBar" />
+    <style name="Theme.ShareIn.Dark.NoActionBar" parent="Theme.ShareIn.Dark.Base.NoActionBar" />
 
-    <style name="Theme.ShareIndia.Dark.NoActionBar.StaticStatusBar" parent="Theme.ShareIndia.Dark.NoActionBar" />
+    <style name="Theme.ShareIn.Dark.NoActionBar.StaticStatusBar" parent="Theme.ShareIn.Dark.NoActionBar" />
 
-    <style name="Theme.ShareIndia.BarcodeScannerActivity" parent="Theme.ShareIndia.Dark.NoActionBar">
+    <style name="Theme.ShareIn.BarcodeScannerActivity" parent="Theme.ShareIn.Dark.NoActionBar">
         <item name="statusBarColor">@color/dark_colorShadowEnd</item>
     </style>
 
@@ -30,48 +30,48 @@
 
     <!-- generalization end -->
 
-    <style name="Widget.ShareIndia.DialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+    <style name="Widget.ShareIn.DialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
         <item name="android:windowBackground">?backgroundDialog</item>
-        <item name="buttonBarButtonStyle">@style/Widget.ShareIndia.ButtonStyle.Dialog</item>
+        <item name="buttonBarButtonStyle">@style/Widget.ShareIn.ButtonStyle.Dialog</item>
     </style>
 
-    <style name="Widget.ShareIndia.PopupTheme" parent="ThemeOverlay.MaterialComponents">
+    <style name="Widget.ShareIn.PopupTheme" parent="ThemeOverlay.MaterialComponents">
         <!--<item name="android:background">?cardBackgroundColor</item>-->
         <!-- Later handle this -->
     </style>
 
-    <style name="Widget.ShareIndia.FloatingActionButtonStyle" parent="@style/Widget.MaterialComponents.FloatingActionButton">
+    <style name="Widget.ShareIn.FloatingActionButtonStyle" parent="@style/Widget.MaterialComponents.FloatingActionButton">
         <item name="tint">@android:color/white</item>
     </style>
 
-    <style name="Widget.ShareIndia.ButtonStyle.TextButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+    <style name="Widget.ShareIn.ButtonStyle.TextButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
         <item name="backgroundTint">@color/text_button_background_selector</item>
         <item name="cornerRadius">8dp</item>
         <item name="android:textColor">@color/text_button_text_color_selector</item>
     </style>
 
-    <style name="Widget.ShareIndia.Snackbar" parent="Widget.MaterialComponents.Snackbar">
+    <style name="Widget.ShareIn.Snackbar" parent="Widget.MaterialComponents.Snackbar">
         <!--<item name="android:background">?snackbarBackground</item>-->
     </style>
 
-    <style name="Widget.ShareIndia.ButtonStyle.Dialog" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+    <style name="Widget.ShareIn.ButtonStyle.Dialog" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="cornerRadius">8dp</item>
         <item name="rippleColor">@color/text_button_ripple_color</item>
         <item name="android:textColor">@color/text_button_text_color_selector</item>
     </style>
 
-    <style name="Widget.ShareIndia.ButtonStyle" parent="Widget.MaterialComponents.Button">
+    <style name="Widget.ShareIn.ButtonStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/text_button_text_color_selector</item>
         <item name="cornerRadius">8dp</item>
         <item name="android:textColor">@color/button_text_color_selector</item>
         <!--<item name="android:textAllCaps">false</item>-->
     </style>
 
-    <style name="Widget.ShareIndia.PopupMenuStyle" parent="Widget.MaterialComponents.PopupMenu">
+    <style name="Widget.ShareIn.PopupMenuStyle" parent="Widget.MaterialComponents.PopupMenu">
         <item name="android:popupBackground">?backgroundPopupMenu</item>
     </style>
 
-    <style name="Widget.ShareIndia.BottomNavigationView"
+    <style name="Widget.ShareIn.BottomNavigationView"
         parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="itemTextColor">?attr/selectionAccentColor</item>
         <item name="itemIconTint">?attr/selectionAccentColor</item>
@@ -79,26 +79,26 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="Widget.ShareIndia.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+    <style name="Widget.ShareIn.NavigationView" parent="Widget.MaterialComponents.NavigationView">
         <item name="itemIconTint">?attr/selectionAccentColor</item>
         <!--<item name="itemTextColor">?attr/selectionAccentColor</item>-->
     </style>
 
-    <style name="Widget.ShareIndia.CardView" parent="Widget.MaterialComponents.CardView">
+    <style name="Widget.ShareIn.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="cardElevation">2dp</item>
         <item name="cardCornerRadius">8dp</item>
     </style>
 
-    <style name="Widget.ShareIndia.ProgressBar.Horizontal.Oval" parent="Widget.AppCompat.ProgressBar.Horizontal">
+    <style name="Widget.ShareIn.ProgressBar.Horizontal.Oval" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">?roundProgressBar</item>
         <item name="android:background">?roundProgressBarShape</item>
     </style>
 
-    <style name="Widget.ShareIndia.ProgressBar.Horizontal.Oval.Bald">
+    <style name="Widget.ShareIn.ProgressBar.Horizontal.Oval.Bald">
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="Widget.ShareIndia.TabLayout" parent="Widget.MaterialComponents.TabLayout.Colored">
+    <style name="Widget.ShareIn.TabLayout" parent="Widget.MaterialComponents.TabLayout.Colored">
         <item name="tabIndicatorColor">?colorSecondary</item>
     </style>
 

@@ -104,7 +104,7 @@ public class NetworkDeviceListAdapter extends EditableListAdapter<NetworkDeviceL
             ImageView statusImage = parentView.findViewById(R.id.imageStatus);
 
             userText.setText(device.nickname);
-            deviceText.setText(hotspotNetwork ? getContext().getString(R.string.text_ShareindiaHotspot) : device.model);
+            deviceText.setText(hotspotNetwork ? getContext().getString(R.string.text_ShareInHotspot) : device.model);
             NetworkDeviceLoader.showPictureIntoView(device, userImage, mIconBuilder);
 
             if (device.isRestricted) {

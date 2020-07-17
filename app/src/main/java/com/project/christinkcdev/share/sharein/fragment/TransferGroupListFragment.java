@@ -161,14 +161,9 @@ public class TransferGroupListFragment  extends GroupEditableListFragment<Transf
                 if (!clazz.isRepresentative()) {
                     registerLayoutViewClicks(clazz);
 
-                    clazz.getView().findViewById(R.id.layout_image).setOnClickListener(new View.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(View v)
-                        {
-                            if (getSelectionConnection() != null)
-                                getSelectionConnection().setSelected(clazz.getAdapterPosition());
-                        }
+                    clazz.getView().findViewById(R.id.layout_image).setOnClickListener(v -> {
+                        if (getSelectionConnection() != null)
+                            getSelectionConnection().setSelected(clazz.getAdapterPosition());
                     });
                 }
             }
@@ -252,23 +247,24 @@ public class TransferGroupListFragment  extends GroupEditableListFragment<Transf
             if (id == R.id.action_mode_group_delete)
                 AppUtils.getDatabase(getFragment().getContext())
                         .removeAsynchronous(getFragment().getActivity(), selectionList);
-            else if (id == R.id.action_mode_group_serve_on_web
-                    || id == R.id.action_mode_group_hide_on_web) {
-                boolean success = false;
-
-                for (TransferGroupListAdapter.PreloadedGroup group : selectionList) {
-                    group.isServedOnWeb = group.index.outgoingCount > 0
-                            && id == R.id.action_mode_group_serve_on_web;
-
-                    if (group.isServedOnWeb)
-                        success = true;
-                }
-
-                AppUtils.getDatabase(getFragment().getContext()).update(selectionList);
-
-                if (success)
-                    AppUtils.startWebShareActivity(getFragment().getActivity(), true);
-            } else
+//            else if (id == R.id.action_mode_group_serve_on_web
+//                    || id == R.id.action_mode_group_hide_on_web) {
+//                boolean success = false;
+//
+//                for (TransferGroupListAdapter.PreloadedGroup group : selectionList) {
+//                    group.isServedOnWeb = group.index.outgoingCount > 0
+//                            && id == R.id.action_mode_group_serve_on_web;
+//
+//                    if (group.isServedOnWeb)
+//                        success = true;
+//                }
+//
+//                AppUtils.getDatabase(getFragment().getContext()).update(selectionList);
+//
+//                if (success)
+//                    AppUtils.startWebShareActivity(getFragment().getActivity(), true);
+//            }
+            else
                 return super.onActionMenuItemSelected(context, actionMode, item);
 
             return true;

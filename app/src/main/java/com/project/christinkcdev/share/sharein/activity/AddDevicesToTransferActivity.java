@@ -263,14 +263,7 @@ public class AddDevicesToTransferActivity extends Activity
         //mTextMain.setText(R.string.text_addDevicesToTransfer);
         mActionButton.setImageResource(R.drawable.ic_add_white_24dp);
         mLayoutStatusContainer.setVisibility(View.GONE);
-        mActionButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                startConnectionManagerActivity();
-            }
-        });
+        mActionButton.setOnClickListener(v -> startConnectionManagerActivity());
     }
 
     private void startConnectionManagerActivity()
@@ -283,14 +276,9 @@ public class AddDevicesToTransferActivity extends Activity
     {
         mLayoutStatusContainer.setVisibility(View.VISIBLE);
         mActionButton.setImageResource(R.drawable.ic_close_white_24dp);
-        mActionButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if (mTask != null)
-                    mTask.getInterrupter().interrupt();
-            }
+        mActionButton.setOnClickListener(v -> {
+            if (mTask != null)
+                mTask.getInterrupter().interrupt();
         });
     }
 
@@ -299,14 +287,9 @@ public class AddDevicesToTransferActivity extends Activity
         if (isFinishing())
             return;
 
-        runOnUiThread(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                mProgressTextLeft.setText(String.valueOf(current));
-                mProgressTextRight.setText(String.valueOf(total));
-            }
+        runOnUiThread(() -> {
+            mProgressTextLeft.setText(String.valueOf(current));
+            mProgressTextRight.setText(String.valueOf(total));
         });
 
         mProgressBar.setProgress(current);
