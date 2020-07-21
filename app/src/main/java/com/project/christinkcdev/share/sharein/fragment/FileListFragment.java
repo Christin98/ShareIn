@@ -85,14 +85,7 @@ public class FileListFragment extends GroupEditableListFragment<FileListAdapter.
 
                             mUpdateSnackbar
                                     .setText(getString(R.string.mesg_fileReceived, intent.getStringExtra(EXTRA_FILE_NAME)))
-                                    .setAction(R.string.butn_show, new View.OnClickListener()
-                                    {
-                                        @Override
-                                        public void onClick(View v)
-                                        {
-                                            goPath(parentFile);
-                                        }
-                                    })
+                                    .setAction(R.string.butn_show, v -> goPath(parentFile))
                                     .show();
                         }
                     }
@@ -270,109 +263,89 @@ public class FileListFragment extends GroupEditableListFragment<FileListAdapter.
     @Override
     public FileListAdapter onAdapter()
     {
-        final AppUtils.QuickActions<GroupEditableListAdapter.GroupViewHolder> quickActions = new AppUtils.QuickActions<GroupEditableListAdapter.GroupViewHolder>()
-        {
-            @Override
-            public void onQuickActions(final GroupEditableListAdapter.GroupViewHolder clazz)
-            {
-                if (!clazz.isRepresentative()) {
-                    registerLayoutViewClicks(clazz);
+        final AppUtils.QuickActions<GroupEditableListAdapter.GroupViewHolder> quickActions = clazz -> {
+            if (!clazz.isRepresentative()) {
+                registerLayoutViewClicks(clazz);
 
-                    clazz.getView().findViewById(R.id.layout_image).setOnClickListener(new View.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(View v)
-                        {
-                            if (getSelectionConnection() != null)
-                                getSelectionConnection().setSelected(clazz.getAdapterPosition());
+                clazz.getView().findViewById(R.id.layout_image).setOnClickListener(v -> {
+                    if (getSelectionConnection() != null)
+                        getSelectionConnection().setSelected(clazz.getAdapterPosition());
+                });
+
+                clazz.getView().findViewById(R.id.menu).setOnClickListener(v -> {
+                    final FileListAdapter.GenericFileHolder fileHolder = getAdapter().getList().get(clazz.getAdapterPosition());
+                    final FileShortcutObject shortcutObject;
+                    boolean isFile = fileHolder.file.isFile();
+                    boolean canChange = fileHolder.file.canWrite()
+                            || fileHolder instanceof FileListAdapter.ShortcutDirectoryHolder;
+                    boolean canRead = fileHolder.file.canRead();
+                    boolean isSensitive = fileHolder instanceof FileListAdapter.StorageHolderImpl
+                            || fileHolder instanceof FileListAdapter.ShortcutDirectoryHolder;
+                    PopupMenu popupMenu = new PopupMenu(getContext(), v);
+                    Menu menuItself = popupMenu.getMenu();
+
+                    if (fileHolder instanceof FileListAdapter.ShortcutDirectoryHolder)
+                        shortcutObject = ((FileListAdapter.ShortcutDirectoryHolder) fileHolder).getShortcutObject();
+                    else if (fileHolder.file.isDirectory()) {
+                        FileShortcutObject testedObject;
+
+                        try {
+                            testedObject = new FileShortcutObject(fileHolder.file.getUri());
+                            AppUtils.getDatabase(getContext()).reconstruct(testedObject);
+                        } catch (Exception e) {
+                            testedObject = null;
                         }
+
+                        shortcutObject = testedObject;
+                    } else
+                        shortcutObject = null;
+
+                    popupMenu.getMenuInflater().inflate(R.menu.action_mode_file, menuItself);
+
+                    menuItself.findItem(R.id.action_mode_file_open).setVisible(canRead && isFile);
+                    menuItself.findItem(R.id.action_mode_file_rename).setEnabled(canChange);
+                    menuItself.findItem(R.id.action_mode_file_delete).setEnabled(canChange && !isSensitive);
+                    menuItself.findItem(R.id.action_mode_file_show)
+                            .setVisible(fileHolder instanceof FileListAdapter.RecentFileHolder);
+                    menuItself.findItem(R.id.action_mode_file_change_save_path)
+                            .setVisible(FileUtils.getApplicationDirectory(getContext()).getUri()
+                                    .equals(fileHolder.file.getUri()));
+                    menuItself.findItem(R.id.action_mode_file_eject_directory)
+                            .setVisible(fileHolder instanceof FileListAdapter.WritablePathHolder);
+                    menuItself.findItem(R.id.action_mode_file_toggle_shortcut)
+                            .setVisible(!isFile)
+                            .setTitle(shortcutObject == null
+                                    ? R.string.butn_addShortcut
+                                    : R.string.butn_removeShortcut);
+
+                    popupMenu.setOnMenuItemClickListener(item -> {
+                        int id = item.getItemId();
+
+                        ArrayList<FileListAdapter.GenericFileHolder> generateSelectionList = new ArrayList<>();
+                        generateSelectionList.add(fileHolder);
+
+                        if (id == R.id.action_mode_file_open) {
+                            performLayoutClickOpen(clazz);
+                        } else if (id == R.id.action_mode_file_show
+                                && fileHolder.file.getParentFile() != null) {
+                            goPath(fileHolder.file.getParentFile());
+                        } else if (id == R.id.action_mode_file_eject_directory
+                                && fileHolder instanceof FileListAdapter.WritablePathHolder) {
+                            AppUtils.getDatabase(getContext()).remove(((FileListAdapter.WritablePathHolder) fileHolder).pathObject);
+                        } else if (id == R.id.action_mode_file_toggle_shortcut) {
+                            shortcutItem(shortcutObject != null
+                                    ? shortcutObject
+                                    : new FileShortcutObject(fileHolder.friendlyName, fileHolder.file.getUri()));
+                        } else if (id == R.id.action_mode_file_change_save_path) {
+                            startActivity(new Intent(getContext(), ChangeStoragePathActivity.class));
+                        } else
+                            return !handleEditingAction(id, FileListFragment.this, generateSelectionList);
+
+                        return true;
                     });
 
-                    clazz.getView().findViewById(R.id.menu).setOnClickListener(new View.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(View v)
-                        {
-                            final FileListAdapter.GenericFileHolder fileHolder = getAdapter().getList().get(clazz.getAdapterPosition());
-                            final FileShortcutObject shortcutObject;
-                            boolean isFile = fileHolder.file.isFile();
-                            boolean canChange = fileHolder.file.canWrite()
-                                    || fileHolder instanceof FileListAdapter.ShortcutDirectoryHolder;
-                            boolean canRead = fileHolder.file.canRead();
-                            boolean isSensitive = fileHolder instanceof FileListAdapter.StorageHolderImpl
-                                    || fileHolder instanceof FileListAdapter.ShortcutDirectoryHolder;
-                            PopupMenu popupMenu = new PopupMenu(getContext(), v);
-                            Menu menuItself = popupMenu.getMenu();
-
-                            if (fileHolder instanceof FileListAdapter.ShortcutDirectoryHolder)
-                                shortcutObject = ((FileListAdapter.ShortcutDirectoryHolder) fileHolder).getShortcutObject();
-                            else if (fileHolder.file.isDirectory()) {
-                                FileShortcutObject testedObject;
-
-                                try {
-                                    testedObject = new FileShortcutObject(fileHolder.file.getUri());
-                                    AppUtils.getDatabase(getContext()).reconstruct(testedObject);
-                                } catch (Exception e) {
-                                    testedObject = null;
-                                }
-
-                                shortcutObject = testedObject;
-                            } else
-                                shortcutObject = null;
-
-                            popupMenu.getMenuInflater().inflate(R.menu.action_mode_file, menuItself);
-
-                            menuItself.findItem(R.id.action_mode_file_open).setVisible(canRead && isFile);
-                            menuItself.findItem(R.id.action_mode_file_rename).setEnabled(canChange);
-                            menuItself.findItem(R.id.action_mode_file_delete).setEnabled(canChange && !isSensitive);
-                            menuItself.findItem(R.id.action_mode_file_show)
-                                    .setVisible(fileHolder instanceof FileListAdapter.RecentFileHolder);
-                            menuItself.findItem(R.id.action_mode_file_change_save_path)
-                                    .setVisible(FileUtils.getApplicationDirectory(getContext()).getUri()
-                                            .equals(fileHolder.file.getUri()));
-                            menuItself.findItem(R.id.action_mode_file_eject_directory)
-                                    .setVisible(fileHolder instanceof FileListAdapter.WritablePathHolder);
-                            menuItself.findItem(R.id.action_mode_file_toggle_shortcut)
-                                    .setVisible(!isFile)
-                                    .setTitle(shortcutObject == null
-                                            ? R.string.butn_addShortcut
-                                            : R.string.butn_removeShortcut);
-
-                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
-                            {
-                                @Override
-                                public boolean onMenuItemClick(MenuItem item)
-                                {
-                                    int id = item.getItemId();
-
-                                    ArrayList<FileListAdapter.GenericFileHolder> generateSelectionList = new ArrayList<>();
-                                    generateSelectionList.add(fileHolder);
-
-                                    if (id == R.id.action_mode_file_open) {
-                                        performLayoutClickOpen(clazz);
-                                    } else if (id == R.id.action_mode_file_show
-                                            && fileHolder.file.getParentFile() != null) {
-                                        goPath(fileHolder.file.getParentFile());
-                                    } else if (id == R.id.action_mode_file_eject_directory
-                                            && fileHolder instanceof FileListAdapter.WritablePathHolder) {
-                                        AppUtils.getDatabase(getContext()).remove(((FileListAdapter.WritablePathHolder) fileHolder).pathObject);
-                                    } else if (id == R.id.action_mode_file_toggle_shortcut) {
-                                        shortcutItem(shortcutObject != null
-                                                ? shortcutObject
-                                                : new FileShortcutObject(fileHolder.friendlyName, fileHolder.file.getUri()));
-                                    } else if (id == R.id.action_mode_file_change_save_path) {
-                                        startActivity(new Intent(getContext(), ChangeStoragePathActivity.class));
-                                    } else
-                                        return !handleEditingAction(id, FileListFragment.this, generateSelectionList);
-
-                                    return true;
-                                }
-                            });
-
-                            popupMenu.show();
-                        }
-                    });
-                }
+                    popupMenu.show();
+                });
             }
         };
 
@@ -519,17 +492,10 @@ public class FileListFragment extends GroupEditableListFragment<FileListAdapter.
 
                 if (getSelectionCallback() != null && getSelectionCallback().isSelectionActivated() && !AppUtils.getDefaultPreferences(getContext()).getBoolean("helpFolderSelection", false))
                     createSnackbar(R.string.mesg_helpFolderSelection)
-                            .setAction(R.string.butn_gotIt, new View.OnClickListener()
-                            {
-                                @Override
-                                public void onClick(View v)
-                                {
-                                    AppUtils.getDefaultPreferences(getContext())
-                                            .edit()
-                                            .putBoolean("helpFolderSelection", true)
-                                            .apply();
-                                }
-                            })
+                            .setAction(R.string.butn_gotIt, v -> AppUtils.getDefaultPreferences(getContext())
+                                    .edit()
+                                    .putBoolean("helpFolderSelection", true)
+                                    .apply())
                             .show();
             } else
                 return super.performLayoutClick(holder);

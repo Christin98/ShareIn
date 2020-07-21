@@ -69,14 +69,7 @@ public class FileExplorerFragment  extends FileListFragment implements Activity.
         mPathView = adaptedView.findViewById(R.id.fragment_fileexplorer_pathresolver);
         mPathAdapter = new FilePathResolverRecyclerAdapter(getContext());
 
-        mPathAdapter.setOnClickListener(new PathResolverRecyclerAdapter.OnClickListener<DocumentFile>()
-        {
-            @Override
-            public void onClick(PathResolverRecyclerAdapter.Holder<DocumentFile> holder)
-            {
-                goPath(holder.index.object);
-            }
-        });
+        mPathAdapter.setOnClickListener(holder -> goPath(holder.index.object));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         layoutManager.setStackFromEnd(true);
@@ -141,14 +134,7 @@ public class FileExplorerFragment  extends FileListFragment implements Activity.
 
         if (id == R.id.actions_file_explorer_create_folder) {
             if (getAdapter().getPath() != null && getAdapter().getPath().canWrite())
-                new FolderCreationDialog(getContext(), getAdapter().getPath(), new FolderCreationDialog.OnFolderCreatedListener()
-                {
-                    @Override
-                    public void onFolderCreated(DocumentFile directoryFile)
-                    {
-                        refreshList();
-                    }
-                }).show();
+                new FolderCreationDialog(getContext(), getAdapter().getPath(), directoryFile -> refreshList()).show();
             else
                 Snackbar.make(getListView(), R.string.mesg_currentPathUnavailable, Snackbar.LENGTH_SHORT).show();
         } else
