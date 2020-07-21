@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "ShareIndia"
+rootProject.name = "ShareIn"

@@ -3,6 +3,6 @@
     <item
         android:color="@color/colorPrimaryDark"
         android:state_checked="true" />
-    <item android:color="@color/colorSecondaryVariant" />
+    <item android:color="@color/dark_colorSecondary" />
 
 </selector>

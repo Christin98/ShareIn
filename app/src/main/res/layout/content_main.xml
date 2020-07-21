@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/activitiy_home_fragment"
-        android:name="com.project.christinkcdev.share.shareindia.fragment.HomeFragment"
+        android:name="com.project.christinkcdev.share.sharein.fragment.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

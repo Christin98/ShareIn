@@ -24,8 +24,11 @@
                 android:id="@+id/sendLayoutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:padding="15dp"
-                android:text="@string/butn_send" />
+                android:text="@string/butn_send"
+                android:textAllCaps="true"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -42,18 +45,21 @@
                 android:id="@+id/receiveLayoutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:padding="15dp"
-                android:text="@string/butn_receive" />
+                android:text="@string/butn_receive"
+                android:textAllCaps="true"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </LinearLayout>
 
-    <!--<View
+    <View
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_above="@id/actionsContainer"
-        android:background="?colorDivider" />-->
+        android:background="?colorDivider" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"

@@ -30,7 +30,7 @@
 
         <fragment
             android:id="@+id/devicesFragment"
-            android:name="com.project.christinkcdev.share.shareindia.fragment.NetworkDeviceListFragment"
+            android:name="com.project.christinkcdev.share.sharein.fragment.NetworkDeviceListFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
