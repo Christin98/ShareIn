@@ -29,7 +29,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
         }
 
         if (intent.hasExtra("networkInfo"))
-            evaluateTheCondition((NetworkInfo) intent.getParcelableExtra("networkInfo"), context, preferences);
+            evaluateTheCondition(intent.getParcelableExtra("networkInfo"), context, preferences);
     }
 
     protected void evaluateTheCondition(NetworkInfo info, final Context context, SharedPreferences preferences)

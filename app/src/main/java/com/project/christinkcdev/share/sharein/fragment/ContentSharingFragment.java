@@ -1,20 +1,24 @@
 package com.project.christinkcdev.share.sharein.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import com.genonbeta.android.framework.widget.PowerfulActionMode;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.project.christinkcdev.share.sharein.R;
+import com.project.christinkcdev.share.sharein.activity.ConnectionManagerActivity;
 import com.project.christinkcdev.share.sharein.adapter.SmartFragmentPagerAdapter;
 import com.project.christinkcdev.share.sharein.app.Activity;
 import com.project.christinkcdev.share.sharein.app.EditableListFragment;
@@ -37,6 +41,7 @@ public class ContentSharingFragment extends com.genonbeta.android.framework.app.
         mMode = view.findViewById(R.id.content_sharing_action_mode);
         final TabLayout tabLayout = view.findViewById(R.id.content_sharing_tab_layout);
         final ViewPager viewPager = view.findViewById(R.id.content_sharing_view_pager);
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.fab);
 
         mSelectionCallback = new SharingActionModeCallback(null);
         final PowerfulActionMode.SelectorConnection selectorConnection = new PowerfulActionMode.SelectorConnection(mMode, mSelectionCallback);
@@ -63,11 +68,10 @@ public class ContentSharingFragment extends com.genonbeta.android.framework.app.
         fileExplorerArgs.putBoolean(FileExplorerFragment.ARG_SELECT_BY_CLICK, true);
 
         pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(0, ApplicationListFragment.class, null));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(1, FileExplorerFragment.class, fileExplorerArgs)
-                .setTitle(getString(R.string.text_files)));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(2, MusicListFragment.class, null));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(3, ImageListFragment.class, null));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(4, VideoListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(1, MusicListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(2, ImageListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(3, VideoListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(4, FileExplorerFragment.class, fileExplorerArgs).setTitle(getString(R.string.text_files)));
 
         pagerAdapter.createTabs(tabLayout, false, true);
         viewPager.setAdapter(pagerAdapter);
@@ -85,14 +89,8 @@ public class ContentSharingFragment extends com.genonbeta.android.framework.app.
                 attachListeners(fragment);
 
                 if (fragment.getAdapterImpl() != null)
-                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            fragment.getAdapterImpl().notifyAllSelectionChanges();
-                        }
-                    }, 200);
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> fragment.getAdapterImpl().notifyAllSelectionChanges(), 200);
+
             }
 
             @Override
@@ -107,6 +105,11 @@ public class ContentSharingFragment extends com.genonbeta.android.framework.app.
 
             }
         });
+
+        floatingActionButton.setOnClickListener(v -> startActivity(new Intent(getContext(), ConnectionManagerActivity.class)
+                .putExtra(ConnectionManagerActivity.EXTRA_ACTIVITY_SUBTITLE, getString(R.string.text_receive))
+                .putExtra(ConnectionManagerActivity.EXTRA_REQUEST_TYPE, ConnectionManagerActivity.RequestType.MAKE_ACQUAINTANCE.toString())));
+
         return view;
     }
 
@@ -154,5 +157,4 @@ public class ContentSharingFragment extends com.genonbeta.android.framework.app.
                 ? (Activity.OnBackPressedListener) fragment
                 : null;
     }
-
 }

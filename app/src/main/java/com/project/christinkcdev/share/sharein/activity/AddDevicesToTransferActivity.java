@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.genonbeta.android.framework.ui.callback.SnackbarSupport;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.project.christinkcdev.share.sharein.R;
@@ -30,6 +33,8 @@ import com.project.christinkcdev.share.sharein.models.NetworkDevice;
 import com.project.christinkcdev.share.sharein.models.TransferGroup;
 import com.project.christinkcdev.share.sharein.service.WorkerService;
 import com.project.christinkcdev.share.sharein.task.AddDeviceRunningTask;
+
+import jonathanfinerty.once.Once;
 
 public class AddDevicesToTransferActivity extends Activity
         implements SnackbarSupport, WorkerService.OnAttachListener {
@@ -103,6 +108,34 @@ public class AddDevicesToTransferActivity extends Activity
             transaction.add(R.id.assigneeListFragment, assigneeListFragment);
             transaction.commit();
         }
+
+        if (!Once.beenDone(Once.THIS_APP_INSTALL, "taptarget")) {
+            TapTargetView.showFor(this, TapTarget.forView(mActionButton, "Add Devices", "Tap Here to Connrct")
+                            .outerCircleColor(R.color.colorSecondary) // Specify a color for the outer circle
+                            .outerCircleAlpha(0.96f) // Specify the alpha amount for the outer circle
+                            .targetCircleColor(R.color.colorPrimary) // Specify a color for the target circle
+                            .titleTextSize(20) // Specify the size (in sp) of the title text
+                            .titleTextColor(R.color.colorPrimary) // Specify the color of the title text
+                            .descriptionTextSize(10) // Specify the size (in sp) of the description text
+                            .descriptionTextColor(R.color.colorPrimary) // Specify the color of the description text
+                            .textColor(R.color.colorPrimary) // Specify a color for both the title and description text
+                            .textTypeface(Typeface.SANS_SERIF) // Specify a typeface for the text
+                            .dimColor(R.color.colorOnSecondary) // If set, will dim behind the view with 30% opacity of the given color
+                            .drawShadow(true) // Whether to draw a drop shadow or not
+                            .cancelable(false) // Whether tapping outside the outer circle dismisses the view
+                            .tintTarget(true) // Whether to tint the target view's color
+                            .transparentTarget(false) // Specify whether the target is transparent (displays the content underneath)
+//                        .icon(Drawable) // Specify a custom drawable to draw as the target
+                            .targetRadius(60), // Specify the target radius (in dp),
+                     new TapTargetView.Listener() {
+                        @Override
+                        public void onTargetClick(TapTargetView view) {
+                            super.onTargetClick(view);
+                        }
+                    });
+            Once.markDone("taptarget");
+        }
+
 
         resetStatusViews();
     }
@@ -260,7 +293,7 @@ public class AddDevicesToTransferActivity extends Activity
         mProgressBar.setMax(0);
         mProgressBar.setProgress(0);
 
-        //mTextMain.setText(R.string.text_addDevicesToTransfer);
+//        mTextMain.setText(R.string.text_addDevicesToTransfer);
         mActionButton.setImageResource(R.drawable.ic_add_white_24dp);
         mLayoutStatusContainer.setVisibility(View.GONE);
         mActionButton.setOnClickListener(v -> startConnectionManagerActivity());

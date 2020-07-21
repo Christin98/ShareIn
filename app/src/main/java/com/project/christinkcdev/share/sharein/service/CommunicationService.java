@@ -77,31 +77,31 @@ import fi.iki.elonen.NanoHTTPD;
 public class CommunicationService extends Service {
     public static final String TAG = "CommunicationService";
 
-    public static final String ACTION_FILE_TRANSFER = "com.genonbeta.TrebleShot.action.FILE_TRANSFER";
-    public static final String ACTION_CLIPBOARD = "com.genonbeta.TrebleShot.action.CLIPBOARD";
-    public static final String ACTION_CANCEL_INDEXING = "com.genonbeta.TrebleShot.action.CANCEL_INDEXING";
-    public static final String ACTION_IP = "com.genonbeta.TrebleShot.action.IP";
-    public static final String ACTION_END_SESSION = "com.genonbeta.TrebleShot.action.END_SESSION";
+    public static final String ACTION_FILE_TRANSFER = "com.project.christinkcdev.share.sharein.action.FILE_TRANSFER";
+    public static final String ACTION_CLIPBOARD = "com.project.christinkcdev.share.sharein.action.CLIPBOARD";
+    public static final String ACTION_CANCEL_INDEXING = "com.project.christinkcdev.share.sharein.action.CANCEL_INDEXING";
+    public static final String ACTION_IP = "com.project.christinkcdev.share.sharein.action.IP";
+    public static final String ACTION_END_SESSION = "com.project.christinkcdev.share.sharein.action.END_SESSION";
     public static final String ACTION_SEAMLESS_RECEIVE = "com.genonbeta.intent.action.SEAMLESS_START";
-    public static final String ACTION_CANCEL_JOB = "com.genonbeta.TrebleShot.transaction.action.CANCEL_JOB";
-    public static final String ACTION_TOGGLE_SEAMLESS_MODE = "com.genonbeta.TrebleShot.transaction.action.TOGGLE_SEAMLESS_MODE";
-    public static final String ACTION_REVOKE_ACCESS_PIN = "com.genonbeta.TrebleShot.transaction.action.REVOKE_ACCESS_PIN";
-    public static final String ACTION_TOGGLE_HOTSPOT = "com.genonbeta.TrebleShot.transaction.action.TOGGLE_HOTSPOT";
-    public static final String ACTION_REQUEST_HOTSPOT_STATUS = "com.genonbeta.TrebleShot.transaction.action.REQUEST_HOTSPOT_STATUS";
-    public static final String ACTION_HOTSPOT_STATUS = "com.genonbeta.TrebleShot.transaction.action.HOTSPOT_STATUS";
-    public static final String ACTION_DEVICE_ACQUAINTANCE = "com.genonbeta.TrebleShot.transaction.action.DEVICE_ACQUAINTANCE";
-    public static final String ACTION_SERVICE_STATUS = "com.genonbeta.TrebleShot.transaction.action.SERVICE_STATUS";
-    public static final String ACTION_SERVICE_CONNECTION_TRANSFER_QUEUE = "com.genonbeta.TrebleShot.transaction.action.SERVICE_CONNECTION_TRANSFER_QUEUE";
-    public static final String ACTION_TASK_STATUS_CHANGE = "com.genonbeta.TrebleShot.transaction.action.TASK_STATUS_CHANGE";
-    public static final String ACTION_TASK_RUNNING_LIST_CHANGE = "com.genonbeta.TrebleShot.transaction.action.TASK_RUNNNIG_LIST_CHANGE";
-    public static final String ACTION_REQUEST_TASK_STATUS_CHANGE = "com.genonbeta.TrebleShot.transaction.action.REQUEST_TASK_STATUS_CHANGE";
-    public static final String ACTION_REQUEST_TASK_RUNNING_LIST_CHANGE = "com.genonbeta.TrebleShot.transaction.action.REQUEST_TASK_RUNNING_LIST_CHANGE";
-    public static final String ACTION_INCOMING_TRANSFER_READY = "com.genonbeta.TrebleShot.transaction.action.INCOMING_TRANSFER_READY";
-    public static final String ACTION_TRUSTZONE_STATUS = "com.genonbeta.TrebleShot.transaction.action.TRUSTZONE_STATUS";
-    public static final String ACTION_REQUEST_TRUSTZONE_STATUS = "com.genonbeta.TrebleShot.transaction.action.REQUEST_TRUSTZONE_STATUS";
-    public static final String ACTION_TOGGLE_WEBSHARE = "com.genonbeta.TrebleShot.transaction.action.TOGGLE_WEBSHARE";
-    public static final String ACTION_WEBSHARE_STATUS = "com.genonbeta.TrebleShot.transaction.action.WEBSHARE_STATUS";
-    public static final String ACTION_REQUEST_WEBSHARE_STATUS = "com.genonbeta.TrebleShot.transaction.action.REQUEST_WEBSHARE_STATUS";
+    public static final String ACTION_CANCEL_JOB = "com.project.christinkcdev.share.sharein.transaction.action.CANCEL_JOB";
+    public static final String ACTION_TOGGLE_SEAMLESS_MODE = "com.project.christinkcdev.share.sharein.transaction.action.TOGGLE_SEAMLESS_MODE";
+    public static final String ACTION_REVOKE_ACCESS_PIN = "com.project.christinkcdev.share.sharein.transaction.action.REVOKE_ACCESS_PIN";
+    public static final String ACTION_TOGGLE_HOTSPOT = "com.project.christinkcdev.share.sharein.transaction.action.TOGGLE_HOTSPOT";
+    public static final String ACTION_REQUEST_HOTSPOT_STATUS = "com.project.christinkcdev.share.sharein.transaction.action.REQUEST_HOTSPOT_STATUS";
+    public static final String ACTION_HOTSPOT_STATUS = "com.project.christinkcdev.share.sharein.transaction.action.HOTSPOT_STATUS";
+    public static final String ACTION_DEVICE_ACQUAINTANCE = "com.project.christinkcdev.share.sharein.transaction.action.DEVICE_ACQUAINTANCE";
+    public static final String ACTION_SERVICE_STATUS = "com.project.christinkcdev.share.sharein.transaction.action.SERVICE_STATUS";
+    public static final String ACTION_SERVICE_CONNECTION_TRANSFER_QUEUE = "com.project.christinkcdev.share.sharein.transaction.action.SERVICE_CONNECTION_TRANSFER_QUEUE";
+    public static final String ACTION_TASK_STATUS_CHANGE = "com.project.christinkcdev.share.sharein.transaction.action.TASK_STATUS_CHANGE";
+    public static final String ACTION_TASK_RUNNING_LIST_CHANGE = "com.project.christinkcdev.share.sharein.transaction.action.TASK_RUNNNIG_LIST_CHANGE";
+    public static final String ACTION_REQUEST_TASK_STATUS_CHANGE = "com.project.christinkcdev.share.sharein.transaction.action.REQUEST_TASK_STATUS_CHANGE";
+    public static final String ACTION_REQUEST_TASK_RUNNING_LIST_CHANGE = "com.project.christinkcdev.share.sharein.transaction.action.REQUEST_TASK_RUNNING_LIST_CHANGE";
+    public static final String ACTION_INCOMING_TRANSFER_READY = "com.project.christinkcdev.share.sharein.transaction.action.INCOMING_TRANSFER_READY";
+    public static final String ACTION_TRUSTZONE_STATUS = "com.project.christinkcdev.share.sharein.transaction.action.TRUSTZONE_STATUS";
+    public static final String ACTION_REQUEST_TRUSTZONE_STATUS = "com.project.christinkcdev.share.sharein.transaction.action.REQUEST_TRUSTZONE_STATUS";
+    public static final String ACTION_TOGGLE_WEBSHARE = "com.project.christinkcdev.share.sharein.transaction.action.TOGGLE_WEBSHARE";
+    public static final String ACTION_WEBSHARE_STATUS = "com.project.christinkcdev.share.sharein.transaction.action.WEBSHARE_STATUS";
+    public static final String ACTION_REQUEST_WEBSHARE_STATUS = "com.project.christinkcdev.share.sharein.transaction.action.REQUEST_WEBSHARE_STATUS";
 
     public static final String EXTRA_DEVICE_ID = "extraDeviceId";
     public static final String EXTRA_STATUS_STARTED = "extraStatusStarted";
@@ -223,25 +223,20 @@ public class CommunicationService extends Service {
                 try {
                     final TransferInstance transferInstance = new TransferInstance(getDatabase(), groupId, deviceId, true);
 
-                    CommunicationBridge.connect(getDatabase(), new CommunicationBridge.Client.ConnectionHandler()
-                    {
-                        @Override
-                        public void onConnect(CommunicationBridge.Client client)
-                        {
-                            try {
-                                CoolSocket.ActiveConnection activeConnection = client.communicate(transferInstance.getDevice(), transferInstance.getConnection());
+                    CommunicationBridge.connect(getDatabase(), client -> {
+                        try {
+                            CoolSocket.ActiveConnection activeConnection = client.communicate(transferInstance.getDevice(), transferInstance.getConnection());
 
-                                activeConnection.reply(new JSONObject()
-                                        .put(Keyword.REQUEST, Keyword.REQUEST_RESPONSE)
-                                        .put(Keyword.TRANSFER_GROUP_ID, groupId)
-                                        .put(Keyword.TRANSFER_IS_ACCEPTED, isAccepted)
-                                        .toString());
+                            activeConnection.reply(new JSONObject()
+                                    .put(Keyword.REQUEST, Keyword.REQUEST_RESPONSE)
+                                    .put(Keyword.TRANSFER_GROUP_ID, groupId)
+                                    .put(Keyword.TRANSFER_IS_ACCEPTED, isAccepted)
+                                    .toString());
 
-                                activeConnection.receive();
-                                activeConnection.getSocket().close();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                            activeConnection.receive();
+                            activeConnection.getSocket().close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     });
 

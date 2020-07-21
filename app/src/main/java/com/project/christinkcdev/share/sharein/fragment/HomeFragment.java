@@ -2,16 +2,17 @@ package com.project.christinkcdev.share.sharein.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.genonbeta.android.framework.ui.callback.SnackbarSupport;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.project.christinkcdev.share.sharein.R;
 import com.project.christinkcdev.share.sharein.adapter.SmartFragmentPagerAdapter;
@@ -27,6 +28,7 @@ public class HomeFragment extends com.genonbeta.android.framework.app.Fragment  
 
     private ViewPager mViewPager;
     private SmartFragmentPagerAdapter mAdapter;
+    private BottomNavigationView bottomNavigationView;
 
     @Nullable
     @Override
@@ -34,7 +36,7 @@ public class HomeFragment extends com.genonbeta.android.framework.app.Fragment  
                              @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        final BottomNavigationView bottomNavigationView = view.findViewById(R.id.layout_home_bottom_navigation_view);
+        bottomNavigationView = view.findViewById(R.id.layout_home_bottom_navigation_view);
         mViewPager = view.findViewById(R.id.layout_home_view_pager);
         mAdapter = new SmartFragmentPagerAdapter(getContext(), getChildFragmentManager());
 

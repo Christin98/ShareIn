@@ -72,11 +72,10 @@ public class ContentSharingActivity extends Activity {
         fileExplorerArgs.putBoolean(FileExplorerFragment.ARG_SELECT_BY_CLICK, true);
 
         pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(0, ApplicationListFragment.class, null));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(1, FileExplorerFragment.class, fileExplorerArgs)
-                .setTitle(getString(R.string.text_files)));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(2, MusicListFragment.class, null));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(3, ImageListFragment.class, null));
-        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(4, VideoListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(1, MusicListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(2, ImageListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(3, VideoListFragment.class, null));
+        pagerAdapter.add(new SmartFragmentPagerAdapter.StableItem(4, FileExplorerFragment.class, fileExplorerArgs).setTitle(getString(R.string.text_files)));
 
         pagerAdapter.createTabs(tabLayout, false, true);
         viewPager.setAdapter(pagerAdapter);

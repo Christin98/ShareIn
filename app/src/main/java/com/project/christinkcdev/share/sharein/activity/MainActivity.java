@@ -186,14 +186,14 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
 //        }
         else if (R.id.menu_activity_main_preferences == mChosenMenuItemId) {
             startActivity(new Intent(this, PreferencesActivity.class));
-        } else if (R.id.menu_activity_main_exit == mChosenMenuItemId) {
-            exitApp();
-        } else if (R.id.menu_activity_main_donate == mChosenMenuItemId) {
-            try {
-                startActivity(new Intent(this, Class.forName("com.genonbeta.TrebleShot.activity.DonationActivity")));
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+//        } else if (R.id.menu_activity_main_exit == mChosenMenuItemId) {
+//            exitApp();
+//        } else if (R.id.menu_activity_main_donate == mChosenMenuItemId) {
+//            try {
+//                startActivity(new Intent(this, Class.forName("com.genonbeta.TrebleShot.activity.DonationActivity")));
+//            } catch (ClassNotFoundException e) {
+//                e.printStackTrace();
+//            }
         } else if (R.id.menu_activity_main_dev_survey == mChosenMenuItemId) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.text_developmentSurvey);

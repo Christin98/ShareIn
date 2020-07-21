@@ -12,7 +12,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/ic_open_in_new_white_24dp" />
+        app:srcCompat="@drawable/ic_open_in_new_white_24dp"
+        android:visibility="gone"/>
 
     <FrameLayout
         android:id="@+id/layout_image"

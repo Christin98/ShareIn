@@ -58,7 +58,7 @@ public class DeviceInfoDialog extends AlertDialog.Builder {
             TextView modelText = rootView.findViewById(R.id.modelText);
             TextView versionText = rootView.findViewById(R.id.versionText);
             final SwitchCompat accessSwitch = rootView.findViewById(R.id.accessSwitch);
-            final SwitchCompat trustSwitch = rootView.findViewById(R.id.trustSwitch);
+//            final SwitchCompat trustSwitch = rootView.findViewById(R.id.trustSwitch);
 
             if (device.versionNumber < AppConfig.SUPPORTED_MIN_VERSION)
                 notSupportedText.setVisibility(View.VISIBLE);
@@ -85,8 +85,8 @@ public class DeviceInfoDialog extends AlertDialog.Builder {
             modelText.setText(String.format("%s %s", device.brand.toUpperCase(), device.model.toUpperCase()));
             versionText.setText(device.versionName);
             accessSwitch.setChecked(!device.isRestricted);
-            trustSwitch.setEnabled(!device.isRestricted);
-            trustSwitch.setChecked(device.isTrusted);
+//            trustSwitch.setEnabled(!device.isRestricted);
+//            trustSwitch.setChecked(device.isTrusted);
 
             accessSwitch.setOnCheckedChangeListener(
                     new CompoundButton.OnCheckedChangeListener()
@@ -96,22 +96,22 @@ public class DeviceInfoDialog extends AlertDialog.Builder {
                         {
                             device.isRestricted = !isChecked;
                             database.publish(device);
-                            trustSwitch.setEnabled(isChecked);
+//                            trustSwitch.setEnabled(isChecked);
                         }
                     }
             );
 
-            trustSwitch.setOnCheckedChangeListener(
-                    new CompoundButton.OnCheckedChangeListener()
-                    {
-                        @Override
-                        public void onCheckedChanged(CompoundButton button, boolean isChecked)
-                        {
-                            device.isTrusted = isChecked;
-                            database.publish(device);
-                        }
-                    }
-            );
+//            trustSwitch.setOnCheckedChangeListener(
+//                    new CompoundButton.OnCheckedChangeListener()
+//                    {
+//                        @Override
+//                        public void onCheckedChanged(CompoundButton button, boolean isChecked)
+//                        {
+//                            device.isTrusted = isChecked;
+//                            database.publish(device);
+//                        }
+//                    }
+//            );
 
             setView(rootView);
             setPositiveButton(R.string.butn_close, null);

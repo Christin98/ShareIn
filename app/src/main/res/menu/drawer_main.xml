@@ -42,11 +42,11 @@
             android:orderInCategory="13"
             android:title="@string/text_about" />
 
-        <item
-            android:id="@+id/menu_activity_main_exit"
-            android:icon="@drawable/ic_exit_to_app_white_24dp"
-            android:orderInCategory="14"
-            android:title="@string/butn_exit" />
+<!--        <item-->
+<!--            android:id="@+id/menu_activity_main_exit"-->
+<!--            android:icon="@drawable/ic_exit_to_app_white_24dp"-->
+<!--            android:orderInCategory="14"-->
+<!--            android:title="@string/butn_exit" />-->
 
     </group>
 
@@ -64,24 +64,24 @@
         <item
             android:id="@+id/menu_activity_feedback"
             android:icon="@drawable/ic_email_white_24dp"
-            android:orderInCategory="16"
+            android:orderInCategory="14"
             android:title="@string/butn_feedbackContact" />
         <item
             android:id="@+id/rate_us"
             android:icon="@drawable/ic_baseline_star_24"
-            android:orderInCategory="17"
+            android:orderInCategory="15"
             android:title="@string/rate_us"/>
 
-        <item
-            android:id="@+id/menu_activity_main_donate"
-            android:icon="@drawable/ic_favorite_white_24dp"
-            android:orderInCategory="18"
-            android:title="@string/butn_donate"
-            android:visible="false" />
+<!--        <item-->
+<!--            android:id="@+id/menu_activity_main_donate"-->
+<!--            android:icon="@drawable/ic_favorite_white_24dp"-->
+<!--            android:orderInCategory="18"-->
+<!--            android:title="@string/butn_donate"-->
+<!--            android:visible="false" />-->
 
         <item
             android:id="@+id/menu_activity_main_ts_dt"
-            android:orderInCategory="19"
+            android:orderInCategory="16"
             app:actionLayout="@layout/layout_main_navigationview_footer"
             tools:ignore="MenuTitle" />
 

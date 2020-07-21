@@ -655,23 +655,9 @@ abstract public class EditableListFragment<T extends Editable, V extends Editabl
 
     public void registerLayoutViewClicks(final V holder)
     {
-        holder.getClickableView().setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                performLayoutClick(holder);
-            }
-        });
+        holder.getClickableView().setOnClickListener(v -> performLayoutClick(holder));
 
-        holder.getClickableView().setOnLongClickListener(new View.OnLongClickListener()
-        {
-            @Override
-            public boolean onLongClick(View v)
-            {
-                return performLayoutLongClick(holder);
-            }
-        });
+        holder.getClickableView().setOnLongClickListener(v -> performLayoutLongClick(holder));
     }
 
     @Override
@@ -895,21 +881,15 @@ abstract public class EditableListFragment<T extends Editable, V extends Editabl
                 setSelection(false);
             else if (id == R.id.action_mode_abs_editable_preview_selections)
                 new SelectionEditorDialog<>(mFragment.getActivity(), mFragment.getSelectionConnection().getSelectedItemList())
-                        .setOnDismissListener(new DialogInterface.OnDismissListener()
-                        {
-                            @Override
-                            public void onDismiss(DialogInterface dialog)
-                            {
-                                List<T> selectedItems = new ArrayList<>(mFragment.getSelectionConnection().getSelectedItemList());
+                        .setOnDismissListener(dialog -> {
+                            List<T> selectedItems = new ArrayList<>(mFragment.getSelectionConnection().getSelectedItemList());
 
-                                for (T selectable : selectedItems)
-                                    if (!selectable.isSelectableSelected())
-                                        mFragment.getSelectionConnection().setSelected(selectable, false);
+                            for (T selectable : selectedItems)
+                                if (!selectable.isSelectableSelected())
+                                    mFragment.getSelectionConnection().setSelected(selectable, false);
 
-                                // Position cannot be assumed that is why we need to request a refresh
-                                getAdapter().notifyAllSelectionChanges();
-                            }
-
+                            // Position cannot be assumed that is why we need to request a refresh
+                            getAdapter().notifyAllSelectionChanges();
                         })
                         .show();
 

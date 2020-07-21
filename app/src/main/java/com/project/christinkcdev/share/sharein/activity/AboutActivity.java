@@ -18,6 +18,8 @@ import com.project.christinkcdev.share.sharein.fragment.external.GitHubContribut
 import com.project.christinkcdev.share.sharein.util.AppUtils;
 import com.project.christinkcdev.share.sharein.util.UpdateUtils;
 
+import java.util.Locale;
+
 public class AboutActivity extends Activity {
 
     @Override
@@ -44,13 +46,13 @@ public class AboutActivity extends Activity {
         findViewById(R.id.activity_about_telegram_layout).setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(AppConfig.URI_TELEGRAM_CHANNEL))));
 
         findViewById(R.id.activity_about_option_fourth_layout).setOnClickListener(view -> {
-            if (Keyword.Flavor.googlePlay.equals(AppUtils.getBuildFlavor())) {
-                try {
-                    startActivity(new Intent(AboutActivity.this, Class.forName("com.genonbeta.TrebleShot.activity.DonationActivity")));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-            } else
+//            if (Keyword.Flavor.googlePlay.equals(AppUtils.getBuildFlavor())) {
+//                try {
+//                    startActivity(new Intent(AboutActivity.this, Class.forName("com.genonbeta.TrebleShot.activity.DonationActivity")));
+//                } catch (ClassNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//            } else
                 UpdateUtils.checkForUpdates(AboutActivity.this, UpdateUtils.getDefaultUpdater(AboutActivity.this), true, null);
         });
 
@@ -92,14 +94,14 @@ public class AboutActivity extends Activity {
         // calling this in the onCreate sequence causes theming issues
         if (!Keyword.Flavor.googlePlay.equals(AppUtils.getBuildFlavor())
                 && UpdateUtils.hasNewVersion(getApplicationContext()))
-            highlightUpdater((TextView) findViewById(R.id.activity_about_option_fourth_text),
+            highlightUpdater(findViewById(R.id.activity_about_option_fourth_text),
                     UpdateUtils.getAvailableVersion(getApplicationContext()));
     }
 
     private void highlightUpdater(TextView textView, String availableVersion)
     {
         textView.setTextColor(ContextCompat.getColor(getApplicationContext(), AppUtils.getReference(AboutActivity.this, R.attr.colorAccent)));
-        textView.setText(R.string.text_newVersionAvailable);
+        textView.setText(String.format(Locale.getDefault(),"%d%s", R.string.text_newVersionAvailable, availableVersion));
     }
 
 }

@@ -10,7 +10,7 @@ public class AppConfig {
             DEFAULT_SOCKET_TIMEOUT = 5000,
             DEFAULT_SOCKET_TIMEOUT_LARGE = 40000,
             DEFAULT_NOTIFICATION_DELAY = 2000,
-            SUPPORTED_MIN_VERSION = 62,
+            SUPPORTED_MIN_VERSION = 1,
             NICKNAME_LENGTH_MAX = 32,
             BUFFER_LENGTH_DEFAULT = 8096,
             BUFFER_LENGTH_SMALL = 1024,
@@ -19,7 +19,7 @@ public class AppConfig {
             WEB_SHARE_CONNECTION_MAX = 20;
 
     public final static String
-            EMAIL_DEVELOPER = "kcdeveloperss@gmail.com",
+            EMAIL_DEVELOPER = "christinkoshy1998@gmail.com",
             URI_REPO_APP_UPDATE = "https://api.github.com/repos/Christin98/ShareIn/releases",
             URI_REPO_APP_CONTRIBUTORS = "https://api.github.com/repos/Christin98/ShareIn/contributors",
             URI_GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.project.christinkcdev.share.sharein",

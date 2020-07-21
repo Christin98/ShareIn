@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Launcher related -->
-    <color name="ic_launcher_background">#47BF4B</color>
+    <color name="green">#47BF4B</color>
     <!-- Launcher related end -->
 
     <color name="colorControlNormal">#222</color>

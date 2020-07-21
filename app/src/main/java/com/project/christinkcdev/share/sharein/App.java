@@ -18,6 +18,8 @@ import com.project.christinkcdev.share.sharein.util.AppUtils;
 import com.project.christinkcdev.share.sharein.util.PreferenceUtils;
 import com.project.christinkcdev.share.sharein.util.UpdateUtils;
 
+import jonathanfinerty.once.Once;
+
 public class App extends Application {
     public static final String TAG = App.class.getSimpleName();
     public static final String ACTION_REQUEST_PREFERENCES_SYNC = "com.genonbeta.intent.action.REQUEST_PREFERENCES_SYNC";
@@ -51,6 +53,7 @@ public class App extends Application {
             GitHubUpdater updater = UpdateUtils.getDefaultUpdater(getApplicationContext());
             UpdateUtils.checkForUpdates(getApplicationContext(), updater, false, null);
         }
+        Once.initialise(this);
     }
 
     @Override

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">ShareIn</string>
+    <string name="app_name">ShareIN</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="text_navigationDrawerOpen">Open navigation drawer</string>n
+    <string name="text_navigationDrawerOpen">Open navigation drawer</string>
     <string name="text_navigationDrawerClose">Close navigation drawer</string>
     <string name="text_preferences">Preferences</string>
     <string name="mesg_connectionFailure">Connection failed</string>
@@ -234,7 +234,7 @@
     <string name="mesg_ongoingUpdateDownload">Downloading the new version</string>
     <string name="butn_gotIt">Got it</string>
     <string name="mesg_helpFolderSelection">To select a folder, tap its icon</string>
-    <string name="mesg_hotspotCreatedInfo">Connect to \"%s\" in \"Wi-Fi settings\" or send  vfilesia \"%s\" inside ShareIn</string>
+    <string name="mesg_hotspotCreatedInfo">Connect to \"%s\" in \"Wi-Fi settings\" or send  files via \"%s\" inside ShareIn</string>
     <string name="butn_selectAll">Select all</string>
     <string name="butn_selectNone">Select none</string>
     <string name="butn_previewSelections">Preview selections</string>
@@ -440,7 +440,7 @@
     <string name="butn_webShare">Share via browser</string>
     <string name="text_webShare" translatable="false">@string/butn_webShare</string>
     <string name="text_webShareNoContentNotice">Use \'Share on browser\' option to see transfers here!</string>
-<!--    <string name="butn_shareOnBrowser">Share on browser</string>-->
+    <!--    <string name="butn_shareOnBrowser">Share on browser</string>-->
     <string name="butn_hideOnBrowser">Hide on browser</string>
     <string name="text_transferSharedOnBrowser">Shared on browser</string>
     <string name="mode_webShareAddress">http://%s:%d/</string>
