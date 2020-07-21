@@ -16,14 +16,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_shareindia_24dp"
-        android:padding="5dp"/>
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_genonbeta_white_24dp_static"
+        app:srcCompat="@drawable/ic_share_in_24"
         app:tint="@color/colorPassive"
         android:padding="5dp"/>
 

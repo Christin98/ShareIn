@@ -6,6 +6,7 @@
 
     <color name="colorControlNormal">#222</color>
     <color name="colorError">#afb42b</color>
+    <color name="yellow">#FBFF14</color>
     <color name="colorOnPrimary">@color/colorControlNormal</color>
     <color name="colorOnSecondary">@color/colorControlNormal</color>
     <color name="colorPrimary">#ffffff</color>

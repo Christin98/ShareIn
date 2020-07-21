@@ -33,7 +33,7 @@ android {
         }
 
         debug {
-            versionNameSuffix '-BETA1'
+            versionNameSuffix '-BETA2'
         }
     }
     compileOptions {
