@@ -67,7 +67,7 @@ The operations of ShareIn is basically for file sharing which is a daily activit
 
 ## About Us
 
-ShareIn is a project developed by Genonbeta Libre Software Org. The development of the ShareIn app is a group effort of different individuals who have contributed immensely to the project. The project has also received a lot of contributions from the open source community on Github in form of suggestions, bug reports, and fixes, translations, and documentation.
+ShareIn is a project developed by KC Developerss.
 
 ShareIn is an open source Android software that solves file sharing problems, such as slow sending speed over a Bluetooth connection, failed to send operation etc. These problems are solved with ShareIn which utilizes the wifi network as a means of transmission and files are shared seamlessly over a wifi connection to another device. ShareIn is designed to allow this operation to be paused or resumed at any time even when there is a case of an error. ShareIn utilizes wifi network and not an internet connection meaning that internet data is not consumed when the software is utilized and also even in areas where there is a poor internet connection, the software still functions optimally.
 The software allows multiple files of different formats to be sent simultaneously.
