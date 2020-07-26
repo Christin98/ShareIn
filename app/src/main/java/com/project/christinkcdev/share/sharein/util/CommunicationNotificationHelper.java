@@ -46,7 +46,7 @@ public class CommunicationNotificationHelper {
 
         builder.append(getContext().getString(R.string.text_communicationServiceRunning));
 
-        notification.setSmallIcon(R.drawable.ic_shareindia_24dp)
+        notification.setSmallIcon(R.drawable.ic_share_in_24)
                 .setContentTitle(builder.toString())
                 .setContentText(getContext().getString(R.string.text_communicationServiceStop))
                 .setAutoCancel(true)

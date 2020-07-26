@@ -73,35 +73,18 @@ public class MusicListFragment  extends GroupEditableListFragment<MusicListAdapt
     @Override
     public MusicListAdapter onAdapter()
     {
-        final AppUtils.QuickActions<GroupEditableListAdapter.GroupViewHolder> quickActions = new AppUtils.QuickActions<GroupEditableListAdapter.GroupViewHolder>()
-        {
-            @Override
-            public void onQuickActions(final GroupEditableListAdapter.GroupViewHolder clazz)
-            {
-                if (!clazz.isRepresentative()) {
-                    registerLayoutViewClicks(clazz);
+        final AppUtils.QuickActions<GroupEditableListAdapter.GroupViewHolder> quickActions = clazz -> {
+            if (!clazz.isRepresentative()) {
+                registerLayoutViewClicks(clazz);
 
-                    clazz.getView().findViewById(R.id.visitView).setOnClickListener(
-                            new View.OnClickListener()
-                            {
-                                @Override
-                                public void onClick(View v)
-                                {
-                                    performLayoutClickOpen(clazz);
-                                }
-                            });
+                clazz.getView().findViewById(R.id.visitView).setOnClickListener(
+                        v -> performLayoutClickOpen(clazz));
 
-                    clazz.getView().findViewById(R.id.selector).setOnClickListener(
-                            new View.OnClickListener()
-                            {
-                                @Override
-                                public void onClick(View v)
-                                {
-                                    if (getSelectionConnection() != null)
-                                        getSelectionConnection().setSelected(clazz.getAdapterPosition());
-                                }
-                            });
-                }
+                clazz.getView().findViewById(R.id.selector).setOnClickListener(
+                        v -> {
+                            if (getSelectionConnection() != null)
+                                getSelectionConnection().setSelected(clazz.getAdapterPosition());
+                        });
             }
         };
 
