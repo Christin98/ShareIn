@@ -2,9 +2,33 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
+//def localPropertiesFile = project.rootProject.file('signing.properties');
+//def useLocalSigning = localPropertiesFile.exists()
+//Properties localProperties = null
+//
+//if (useLocalSigning) {
+//    localProperties = new Properties()
+//    localProperties.load(localPropertiesFile.newDataInputStream())
+//}
+
 android {
     compileSdkVersion 28
     buildToolsVersion "30.0.1"
+
+    signingConfigs {
+        gbDistribution {
+            storeFile file('C:\\Users\\Christin\\Desktop\\ShareInKeyStore\\ShareIN.jks')
+            storePassword 'ShareIN'
+            keyAlias 'ShareIN'
+            keyPassword 'ShareIN'
+//            if (useLocalSigning) {
+//                storeFile file(localProperties.getProperty('signing.storeFile'))
+//                keyAlias localProperties.getProperty('signing.keyAlias')
+//                storePassword localProperties.getProperty('signing.storePassword')
+//                keyPassword localProperties.getProperty('signing.keyPassword')
+//            }
+        }
+    }
 
     defaultConfig {
         applicationId "com.project.christinkcdev.share.sharein"
@@ -33,13 +57,23 @@ android {
         }
 
         debug {
-            versionNameSuffix '-BETA2'
+            versionNameSuffix '-DEBUG'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    flavorDimensions 'mode'
+    productFlavors {
+        googlePlay {
+            dimension 'mode'
+            signingConfig signingConfigs.gbDistribution
+        }
+    }
+
 }
 
 dependencies {
