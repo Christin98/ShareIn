@@ -178,6 +178,7 @@
     <string name="butn_ask">Ask</string>
     <string name="text_permissionRequest">Permission request</string>
     <string name="text_requestPermissionStorage">Storage permission</string>
+    <string name="text_requestPermissionStorage1">Read Storage permission</string>
     <string name="text_requestPermissionReadPhoneState">Permission to read phone state</string>
     <string name="text_requestPermissionReadPhoneStateSummary">ShareIn needs to access your device\'s serial number to create a long-term identity number, helping other devices recognize you</string>
     <string name="text_mediaDirectory">Media directory</string>

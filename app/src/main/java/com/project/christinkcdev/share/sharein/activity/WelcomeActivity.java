@@ -1,13 +1,17 @@
 package com.project.christinkcdev.share.sharein.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.Window;
@@ -16,14 +20,23 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.project.christinkcdev.share.sharein.R;
+
+import java.util.List;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     CoordinatorLayout myView;
     ImageView logo;
     LinearLayout details;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +81,39 @@ public class WelcomeActivity extends AppCompatActivity {
 
                             @Override
                             public void onAnimationEnd(Animation animation) {
-                                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+
+                                Dexter.withContext(WelcomeActivity.this)
+                                        .withPermissions(
+                                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                                Manifest.permission.READ_PHONE_STATE)
+                                        .withListener(new MultiplePermissionsListener() {
+                                            @Override
+                                            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                                // check if all permissions are granted
+                                                if (report.areAllPermissionsGranted()) {
+                                                    Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                                                    finish();
+                                                } else {
+                                                    showSettingsDialog();
+                                                }
+
+                                                // check for permanent denial of any permission
+                                                if (report.isAnyPermissionPermanentlyDenied()) {
+                                                    // show alert dialog navigating to Settings
+                                                    showSettingsDialog();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                                                token.continuePermissionRequest();
+                                            }
+                                        }).
+                                        withErrorListener(error -> Toast.makeText(getApplicationContext(), "Error occurred! ", Toast.LENGTH_SHORT).show())
+                                        .onSameThread()
+                                        .check();
                             }
 
                             @Override
@@ -95,6 +140,29 @@ public class WelcomeActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void showSettingsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(WelcomeActivity.this);
+        builder.setTitle("Need Permissions");
+        builder.setMessage("This app needs permission to use some feature. You can grant them in app settings.");
+        builder.setPositiveButton("GOTO SETTINGS", (dialog, which) -> {
+            dialog.cancel();
+            openSettings();
+        });
+        builder.setNegativeButton("Close App", (dialog, which) -> {
+            dialog.cancel();
+            finish();
+        });
+        builder.show();
 
     }
+
+    // navigating user to app settings
+    private void openSettings() {
+        Intent intent = new Intent().setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(Uri.fromParts("package", getPackageName(), null));
+        startActivity(intent);
+        finish();
+    }
+
 }
