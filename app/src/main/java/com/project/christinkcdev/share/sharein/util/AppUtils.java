@@ -319,7 +319,14 @@ public class AppUtils {
                     R.string.text_requestPermissionStorageSummary));
         }
 
-        if (Build.VERSION.SDK_INT >= 26) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            permissionRequests.add(new RationalePermissionRequest.PermissionRequest(context,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    R.string.text_requestPermissionStorage1,
+                    R.string.text_requestPermissionStorageSummary));
+        }
+
+        if (Build.VERSION.SDK_INT >= 16) {
             permissionRequests.add(new RationalePermissionRequest.PermissionRequest(context,
                     Manifest.permission.READ_PHONE_STATE,
                     R.string.text_requestPermissionReadPhoneState,
