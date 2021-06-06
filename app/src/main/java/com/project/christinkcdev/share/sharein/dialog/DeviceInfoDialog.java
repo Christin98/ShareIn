@@ -29,7 +29,7 @@ import com.project.christinkcdev.share.sharein.service.WorkerService;
 import com.project.christinkcdev.share.sharein.util.AppUtils;
 import com.project.christinkcdev.share.sharein.util.FileUtils;
 import com.project.christinkcdev.share.sharein.util.NetworkDeviceLoader;
-import com.project.christinkcdev.share.sharein.util.UpdateUtils;
+import com.project.christinkcdev.share.sharein.util.Updater;
 
 import org.json.JSONObject;
 
@@ -142,7 +142,7 @@ public class DeviceInfoDialog extends AlertDialog.Builder {
                     publishStatusText(getService().getString(R.string.mesg_waiting));
 
                     final Context context = getContext();
-                    final DocumentFile receivedFile = UpdateUtils.receiveUpdate(activity, device, getInterrupter(), new UpdateUtils.OnConnectionReadyListener()
+                    final DocumentFile receivedFile = Updater.receiveUpdate(activity, device, getInterrupter(), new Updater.OnConnectionReadyListener()
                     {
                         @Override
                         public void onConnectionReady(ServerSocket socket)

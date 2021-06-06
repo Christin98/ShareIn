@@ -52,7 +52,7 @@ import com.project.christinkcdev.share.sharein.util.NotificationUtils;
 import com.project.christinkcdev.share.sharein.util.NsdDiscovery;
 import com.project.christinkcdev.share.sharein.util.TimeUtils;
 import com.project.christinkcdev.share.sharein.util.TransferUtils;
-import com.project.christinkcdev.share.sharein.util.UpdateUtils;
+import com.project.christinkcdev.share.sharein.util.Updater;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -717,7 +717,7 @@ public class CommunicationService extends Service {
                         public void run()
                         {
                             try {
-                                UpdateUtils.sendUpdate(getApplicationContext(), activeConnection.getClientAddress());
+                                Updater.sendUpdate(getApplicationContext(), activeConnection.getClientAddress());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

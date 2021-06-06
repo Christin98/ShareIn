@@ -1,149 +1,76 @@
-package com.project.christinkcdev.share.sharein;
+package com.project.christinkcdev.share.sharein
 
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.Priority;
-import com.bumptech.glide.Registry;
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.Options;
-import com.bumptech.glide.load.ResourceDecoder;
-import com.bumptech.glide.load.data.DataFetcher;
-import com.bumptech.glide.load.engine.Resource;
-import com.bumptech.glide.load.model.ModelLoader;
-import com.bumptech.glide.load.model.ModelLoaderFactory;
-import com.bumptech.glide.load.model.MultiModelLoaderFactory;
-import com.bumptech.glide.load.resource.drawable.DrawableResource;
-import com.bumptech.glide.module.AppGlideModule;
-import com.bumptech.glide.signature.ObjectKey;
-import com.bumptech.glide.util.Util;
-
-import java.io.IOException;
+import android.content.Context
+import com.bumptech.glide.module.AppGlideModule
+import com.bumptech.glide.Glide
+import android.content.pm.ApplicationInfo
+import com.bumptech.glide.load.model.ModelLoaderFactory
+import com.bumptech.glide.load.model.MultiModelLoaderFactory
+import com.bumptech.glide.load.model.ModelLoader
+import android.graphics.drawable.Drawable
+import com.bumptech.glide.load.model.ModelLoader.LoadData
+import com.bumptech.glide.signature.ObjectKey
+import com.bumptech.glide.load.data.DataFetcher
+import com.bumptech.glide.Priority
+import com.bumptech.glide.Registry
+import com.bumptech.glide.annotation.GlideModule
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.Options
 
 @GlideModule
-public final class ApplicationGlideModule extends AppGlideModule  {
-    @Override
-    public void registerComponents(@NonNull Context context, @NonNull Glide glide, @NonNull Registry registry)
-    {
-        super.registerComponents(context, glide, registry);
-
-        registry.append(ApplicationInfo.class, ApplicationInfo.class,
-                new ModelLoaderFactory<ApplicationInfo, ApplicationInfo>()
-                {
-                    @Override
-                    public ModelLoader<ApplicationInfo, ApplicationInfo> build(
-                            @NonNull MultiModelLoaderFactory multiFactory)
-                    {
-                        return new ApplicationIconModelLoader();
-                    }
-
-                    @Override
-                    public void teardown()
-                    {
-
-                    }
-                }).append(ApplicationInfo.class, Drawable.class, new ApplicationIconDecoder(context));
+class ApplicationGlideModule : AppGlideModule() {
+    override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
+        super.registerComponents(context, glide, registry)
+        registry.append(
+            ApplicationInfo::class.java,
+            Drawable::class.java,
+            AppIconModelLoaderFactory(context)
+        )
     }
 
-    private class ApplicationIconModelLoader implements ModelLoader<ApplicationInfo, ApplicationInfo>
-    {
-        @Nullable
-        @Override
-        public LoadData<ApplicationInfo> buildLoadData(@NonNull final ApplicationInfo applicationInfo, int width, int height, @NonNull Options options)
-        {
-            return new LoadData<>(new ObjectKey(applicationInfo), new DataFetcher<ApplicationInfo>()
-            {
-                @Override
-                public void loadData(@NonNull Priority priority, @NonNull DataCallback<? super ApplicationInfo> callback)
-                {
-                    callback.onDataReady(applicationInfo);
-                }
-
-                @Override
-                public void cleanup()
-                {
-
-                }
-
-                @Override
-                public void cancel()
-                {
-
-                }
-
-                @NonNull
-                @Override
-                public Class<ApplicationInfo> getDataClass()
-                {
-                    return ApplicationInfo.class;
-                }
-
-                @NonNull
-                @Override
-                public DataSource getDataSource()
-                {
-                    return DataSource.LOCAL;
-                }
-            });
+    internal class AppIconDataFetcher(val context: Context, val model: ApplicationInfo) : DataFetcher<Drawable> {
+        override fun loadData(priority: Priority, callback: DataFetcher.DataCallback<in Drawable>) {
+            callback.onDataReady(context.packageManager.getApplicationIcon(model))
         }
 
-        @Override
-        public boolean handles(ApplicationInfo applicationInfo)
-        {
-            return true;
+        override fun cleanup() {
+            // Empty Implementation
+        }
+
+        override fun cancel() {
+            // Empty Implementation
+        }
+
+        override fun getDataClass(): Class<Drawable> {
+            return Drawable::class.java
+        }
+
+        override fun getDataSource(): DataSource {
+            return DataSource.LOCAL
         }
     }
 
-    private class ApplicationIconDecoder implements ResourceDecoder<ApplicationInfo, Drawable>
-    {
-        private final Context context;
-
-        public ApplicationIconDecoder(Context context)
-        {
-            this.context = context;
+    internal class AppIconModelLoader(private val context: Context) : ModelLoader<ApplicationInfo, Drawable> {
+        override fun buildLoadData(
+            applicationInfo: ApplicationInfo, width: Int, height: Int, options: Options,
+        ): LoadData<Drawable> {
+            return LoadData(ObjectKey(applicationInfo), AppIconDataFetcher(context, applicationInfo))
         }
 
-        @Nullable
-        @Override
-        public Resource<Drawable> decode(@NonNull ApplicationInfo source, int width, int height, @NonNull Options options) throws IOException
-        {
-            Drawable icon = source.loadIcon(context.getPackageManager());
-            return new DrawableResource<Drawable>(icon)
-            {
-                @NonNull
-                @Override
-                public Class<Drawable> getResourceClass()
-                {
-                    return Drawable.class;
-                }
+        override fun handles(applicationInfo: ApplicationInfo): Boolean {
+            return true
+        }
+    }
 
-                @Override
-                public int getSize()
-                {
-                    if (drawable instanceof BitmapDrawable)
-                        return Util.getBitmapByteSize(((BitmapDrawable) drawable).getBitmap());
-
-                    return 1;
-                }
-
-                @Override
-                public void recycle()
-                {
-                }
-            };
+    internal class AppIconModelLoaderFactory(
+        private val context: Context,
+    ) : ModelLoaderFactory<ApplicationInfo, Drawable> {
+        override fun build(multiFactory: MultiModelLoaderFactory): ModelLoader<ApplicationInfo, Drawable> {
+            return AppIconModelLoader(context)
         }
 
-        @Override
-        public boolean handles(@NonNull ApplicationInfo source, @NonNull Options options) throws IOException
-        {
-            return true;
+        override fun teardown() {
+            // Empty Implementation.
         }
     }
 }

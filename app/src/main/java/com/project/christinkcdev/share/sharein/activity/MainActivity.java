@@ -34,7 +34,7 @@ import com.project.christinkcdev.share.sharein.models.NetworkDevice;
 import com.project.christinkcdev.share.sharein.service.CommunicationService;
 import com.project.christinkcdev.share.sharein.ui.callback.PowerfulActionModeSupport;
 import com.project.christinkcdev.share.sharein.util.AppUtils;
-import com.project.christinkcdev.share.sharein.util.UpdateUtils;
+import com.project.christinkcdev.share.sharein.util.Updater;
 
 public class MainActivity extends Activity implements NavigationView.OnNavigationItemSelectedListener, PowerfulActionModeSupport {
 
@@ -81,7 +81,7 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
         mNavigationView.setNavigationItemSelectedListener(this);
         mActionMode.setOnSelectionTaskListener((started, actionMode) -> toolbar.setVisibility(!started ? View.VISIBLE : View.GONE));
 
-        if (UpdateUtils.hasNewVersion(this))
+        if (Updater.hasNewVersion(this))
             highlightUpdater(getDefaultPreferences().getString("availableVersion", null));
 
         if (!AppUtils.isLatestChangeLogSeen(this)) {

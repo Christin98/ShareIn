@@ -16,7 +16,7 @@ import com.project.christinkcdev.share.sharein.config.AppConfig;
 import com.project.christinkcdev.share.sharein.config.Keyword;
 import com.project.christinkcdev.share.sharein.fragment.external.GitHubContributorsListFragment;
 import com.project.christinkcdev.share.sharein.util.AppUtils;
-import com.project.christinkcdev.share.sharein.util.UpdateUtils;
+import com.project.christinkcdev.share.sharein.util.Updater;
 
 import java.util.Locale;
 
@@ -53,7 +53,7 @@ public class AboutActivity extends Activity {
 //                    e.printStackTrace();
 //                }
 //            } else
-                UpdateUtils.checkForUpdates(AboutActivity.this, UpdateUtils.getDefaultUpdater(AboutActivity.this), true, null);
+                Updater.checkForUpdates(AboutActivity.this, Updater.getDefaultUpdater(AboutActivity.this), true, null);
         });
 
         findViewById(R.id.activity_about_third_party_libraries_layout).setOnClickListener(v -> startActivity(new Intent(AboutActivity.this, ThirdPartyLibrariesActivity.class)));
@@ -93,9 +93,9 @@ public class AboutActivity extends Activity {
 
         // calling this in the onCreate sequence causes theming issues
         if (!Keyword.Flavor.googlePlay.equals(AppUtils.getBuildFlavor())
-                && UpdateUtils.hasNewVersion(getApplicationContext()))
+                && Updater.hasNewVersion(getApplicationContext()))
             highlightUpdater(findViewById(R.id.activity_about_option_fourth_text),
-                    UpdateUtils.getAvailableVersion(getApplicationContext()));
+                    Updater.getAvailableVersion(getApplicationContext()));
     }
 
     private void highlightUpdater(TextView textView, String availableVersion)
