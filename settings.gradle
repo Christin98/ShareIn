@@ -1,2 +1,5 @@
 include ':app'
+include ':zxing'
+include ':database'
+include ':core'
 rootProject.name = "ShareIn"
