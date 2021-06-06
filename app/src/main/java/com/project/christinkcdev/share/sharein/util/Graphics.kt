@@ -9,7 +9,9 @@ import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.project.christinkcdev.share.sharein.GlideApp
 import com.project.christinkcdev.share.sharein.R
+import com.project.christinkcdev.share.sharein.data.ClientRepository
 import com.project.christinkcdev.share.sharein.data.UserDataRepository
 import com.project.christinkcdev.share.sharein.database.model.UClient
 import com.project.christinkcdev.share.sharein.drawable.TextDrawable
@@ -19,13 +21,13 @@ import kotlinx.coroutines.launch
 import org.monora.uprotocol.core.protocol.Client
 import java.util.*
 
-class Graphics {
+object Graphics {
     fun createIconBuilder(context: Context) = TextDrawable.createBuilder().apply {
         textFirstLetters = true
         textMaxLength = 2
         textBold = true
-        textColor = R.attr.colorControlNormal.attrToRes(context).resToColor(context)
-        shapeColor = R.attr.colorPassive.attrToRes(context).resToColor(context)
+        textColor = R.attr.colorControlNormal
+        shapeColor = R.attr.colorPassive
     }
 
     fun deleteLocalClientPicture(context: Context) {
