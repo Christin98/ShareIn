@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/header_default"
+        app:headerLayout="@layout/layout_user_profile"
         app:menu="@menu/drawer_main" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

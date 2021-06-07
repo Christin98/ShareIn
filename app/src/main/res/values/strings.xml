@@ -452,6 +452,8 @@
     <string name="text_listEmptyConnection">Networks you connect appear here</string>
     <string name="mesg_errorNotAnIpAddress">Not an IP Address
 \n(like 192.168.1.2)</string>
+    <string name="text_appLogo">App logo</string>
+    <string name="transfer_history">Transfer History</string>
     <string name="ques_shareAsApkOrLink">Share ShreIn App link?</string>
     <string name="butn_asApk">As APK</string>
     <string name="butn_asLink">As a link</string>
@@ -466,5 +468,6 @@
     <string name="butn_showAsQrCode">Show as QR code</string>
     <string name="text_showAsQrCode" translatable="false">@string/butn_showAsQrCode</string>
     <string name="rate_us">Rate Us</string>
+    <string name="_2021">© 2021</string>
 
 </resources>

@@ -11,12 +11,6 @@
             android:orderInCategory="1"
             android:title="@string/text_manageDevices" />
 
-<!--        <item-->
-<!--            android:id="@+id/menu_activity_main_web_share"-->
-<!--            android:icon="@drawable/ic_web_white_24dp"-->
-<!--            android:orderInCategory="11"-->
-<!--            android:title="@string/butn_webShare" />-->
-
         <item
             android:id="@+id/menu_activity_main_send_application"
             android:icon="@drawable/ic_redo_white_24dp"
@@ -42,46 +36,25 @@
             android:orderInCategory="13"
             android:title="@string/text_about" />
 
-<!--        <item-->
-<!--            android:id="@+id/menu_activity_main_exit"-->
-<!--            android:icon="@drawable/ic_exit_to_app_white_24dp"-->
-<!--            android:orderInCategory="14"-->
-<!--            android:title="@string/butn_exit" />-->
-
     </group>
-
-<!--    <group android:id="@+id/nav_group_quick_settings">-->
-<!--        <item-->
-<!--            android:id="@+id/menu_activity_trustzone"-->
-<!--            android:icon="@drawable/ic_compare_arrows_white_24dp"-->
-<!--            android:orderInCategory="15"-->
-<!--            android:title="@string/butn_turnTrustZoneOff" />-->
-
-<!--    </group>-->
-
 
     <group android:id="@+id/nav_group_support">
         <item
             android:id="@+id/menu_activity_feedback"
             android:icon="@drawable/ic_email_white_24dp"
-            android:orderInCategory="14"
+            android:orderInCategory="17"
             android:title="@string/butn_feedbackContact" />
-        <item
-            android:id="@+id/rate_us"
-            android:icon="@drawable/ic_baseline_star_24"
-            android:orderInCategory="15"
-            android:title="@string/rate_us"/>
 
-<!--        <item-->
-<!--            android:id="@+id/menu_activity_main_donate"-->
-<!--            android:icon="@drawable/ic_favorite_white_24dp"-->
-<!--            android:orderInCategory="18"-->
-<!--            android:title="@string/butn_donate"-->
-<!--            android:visible="false" />-->
+        <item
+            android:id="@+id/menu_activity_main_donate"
+            android:icon="@drawable/ic_favorite_white_24dp"
+            android:orderInCategory="18"
+            android:title="@string/butn_donate"
+            android:visible="false" />
 
         <item
             android:id="@+id/menu_activity_main_ts_dt"
-            android:orderInCategory="16"
+            android:orderInCategory="19"
             app:actionLayout="@layout/layout_main_navigationview_footer"
             tools:ignore="MenuTitle" />
 

@@ -17,6 +17,6 @@
         <color android:color="@color/dark_colorSelection" />
     </item>
 
-    <item android:drawable="@android:color/transparent"/>
+    <item android:drawable="@android:color/transparent" />
 
 </selector>
